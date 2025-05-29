@@ -1,0 +1,26 @@
+
+
+.headerLink, .activeHeaderLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.headerLink::before, .activeHeaderLink::before {
+  content: '';
+  opacity: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-red-400);
+  transition: opacity 0.3s;
+}
+
+.activeHeaderLink::before, .headerLink:hover::before {
+  opacity: 1;
+}
+
+.activeHeaderLink {
+  font-weight: 700;
+}

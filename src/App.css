@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+button {
+  cursor: pointer;
+}
+
+@theme {
+  --font-dm: DM Sans, sans-serif;
+  --font-rubik: Rubik, sans-serif;
+  --color-blue-500: #242B53;
+  --color-red-400: #FF2727;
+}
