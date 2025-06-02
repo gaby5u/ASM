@@ -24,8 +24,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full flex justify-between items-center sticky top-0 z-100 duration-300 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6 ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+      className={`w-full flex justify-between items-center fixed top-0 z-100 duration-300 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6 ${
+        scrolled ? "bg-white shadow-sm" : "bg-blue-100"
       }`}
     >
       <Link to="/">
