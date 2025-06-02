@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router";
-import Navbar from "./components/Navbar.jsx";
+import Header from "./components/Header.jsx";
 import Homepage from "./pages/Homepage.jsx";
 import About from "./pages/About.jsx";
 import News from "./pages/News.jsx";
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/despre" element={<About />} />
