@@ -1,4 +1,5 @@
 import "./App.css";
+import "./styles/stateStyles.css"
 import { BrowserRouter, Routes, Route } from "react-router";
 import Header from "./components/Header.jsx";
 import Homepage from "./pages/Homepage.jsx";

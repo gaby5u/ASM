@@ -1,0 +1,37 @@
+import { useNavigate } from "react-router"
+
+const BlueButton = ({to, text, className}) => {
+
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    if (!to) return;
+
+    if (to.startsWith("#")) {
+      // Scroll în pagina curentă
+      const target = document.getElementById(to.replace("#", ""));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (to.includes("#")) {
+      // Navigare pe altă pagină + secțiune
+      const [path, hash] = to.split("#");
+      navigate(path, {
+        state: { scrollToId: hash }
+      });
+    } else {
+      // Navigare simplă
+      navigate(to);
+    }
+
+    if (props.onClick) props.onClick(e);
+  };
+
+  return (
+    <button onClick={handleClick} className={`bg-blue-400 text-white rounded-full py-2 px-6 text-center inline-block ${className}`}>
+      {text}
+    </button>
+  )
+}
+
+export default BlueButton

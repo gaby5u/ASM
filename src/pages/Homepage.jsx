@@ -1,3 +1,4 @@
+
 import BgImage from "../assets/line.png";
 import BgImageElements from "../assets/elements1.png";
 
@@ -5,17 +6,20 @@ import Title from "../components/Title";
 import PartenerSlide from "../components/PartenerSlide";
 import CaractWhoAreWe from "../components/CaractWhoAreWe";
 import CardNews from "../components/cards/CardNews";
+import BlueButton from "../components/BlueButton";
+import Gallery from "../components/Gallery";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const Homepage = () => {
+
   return (
     <>
       <section
         style={{ backgroundImage: `url(${BgImage})` }}
-        className="bluread-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full mt-[60px] font-dm py-4 px-2 sm:px-4 lg:px-10 xl:mt-[96px] xl:px-20 2xl:px-50 xl:py-6"
+        className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full mt-[60px] font-dm py-4 px-2 sm:px-4 lg:px-10 xl:mt-[96px] xl:px-20 2xl:px-50 xl:py-6"
       >
         <div className="flex flex-wrap items-center justify-center gap-8 py-4 sm:py-16 md:flex-nowrap md:justify-between xl:py-25 xl:items-start">
           <div className="text-blue-500">
@@ -73,7 +77,7 @@ const Homepage = () => {
       </section>
       <section
         style={{ backgroundImage: `url(${BgImageElements})` }}
-        className="bluread-section bg-white bg-no-repeat font-dm bg-cover w-full h-full my-16 md:my-24"
+        className="bg-white bg-no-repeat font-dm bg-cover w-full h-full my-16 md:my-24"
       >
         <div className="py-2 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
           <div className="flex flex-col items-center justify-between gap-4 md:gap-8 lg:gap-16 xl:flex-row">
@@ -101,7 +105,7 @@ const Homepage = () => {
           <Title
             subtitle="Puterea prezentului"
             title="Organizații și instituții care ne susțin"
-            className="pt-16 lg:pt-24 mb-8"
+            className="mb-8"
           />
         </div>
 
@@ -203,19 +207,67 @@ const Homepage = () => {
         </Swiper>
       </section>
 
-      <section className="font-dm py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
-        <Title
-            subtitle="noutăți"
-            title="Cele mai proaspete evenimente"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
-          <CardNews date="12.04.2025" category="Evenimente" title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd" description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd" img="/images/noutate.jpg" alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de" ></CardNews>
-          <CardNews date="12.04.2025" category="Admitere" title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd" description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd" img="/images/noutate.jpg" alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de" ></CardNews>
-          <CardNews date="12.04.2025" category="Cercetări" title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd" description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd" img="/images/noutate.jpg" alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de" ></CardNews>
-          <CardNews date="12.04.2025" category="Întâlniri" title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd" description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd" img="/images/noutate.jpg" alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de" ></CardNews>
-          <CardNews date="12.04.2025" category="Advocacy" title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd" description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd" img="/images/noutate.jpg" alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de" ></CardNews> 
-          <CardNews date="12.04.2025" category="Proiecte" title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd" description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd" img="/images/noutate.jpg" alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de" ></CardNews> 
-          </div>
+      <section className="blured-section font-dm bg-blue-100 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
+        <Title subtitle="noutăți" title="Cele mai proaspete evenimente" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
+          <CardNews
+            date="12.04.2025"
+            category="Evenimente"
+            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
+            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
+            img="/images/noutate.jpg"
+            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
+          ></CardNews>
+          <CardNews
+            date="12.04.2025"
+            category="Admitere"
+            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
+            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
+            img="/images/noutate.jpg"
+            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
+          ></CardNews>
+          <CardNews
+            date="12.04.2025"
+            category="Cercetări"
+            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
+            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
+            img="/images/noutate.jpg"
+            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
+          ></CardNews>
+          <CardNews
+            date="12.04.2025"
+            category="Întâlniri"
+            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
+            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
+            img="/images/noutate.jpg"
+            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
+          ></CardNews>
+          <CardNews
+            date="12.04.2025"
+            category="Advocacy"
+            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
+            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
+            img="/images/noutate.jpg"
+            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
+          ></CardNews>
+          <CardNews
+            date="12.04.2025"
+            category="Proiecte"
+            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
+            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
+            img="/images/noutate.jpg"
+            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
+          ></CardNews>
+        </div>
+        <div className="text-center">
+          <BlueButton text="Vezi toate noutățile" className="mt-8 md:mt-16"/>
+        </div>
+      </section>
+
+      <section className="py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
+        <Title subtitle="galerie" title="Retrăiește momentele" />
+
+        <Gallery/>
       </section>
     </>
   );
