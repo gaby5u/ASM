@@ -266,7 +266,6 @@ const Homepage = () => {
 
       <section className="py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
         <Title subtitle="galerie" title="Retrăiește momentele" />
-
         <Gallery/>
       </section>
     </>
