@@ -19,7 +19,7 @@ const Homepage = () => {
     <>
       <section
         style={{ backgroundImage: `url(${BgImage})` }}
-        className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full mt-[60px] font-dm py-4 px-2 sm:px-4 lg:px-10 xl:mt-[96px] xl:px-20 2xl:px-50 xl:py-6"
+        className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm py-4 px-2 pt-[60px] sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6 xl:pt-[96px]"
       >
         <div className="flex flex-wrap items-center justify-center gap-8 py-4 sm:py-16 md:flex-nowrap md:justify-between xl:py-25 xl:items-start">
           <div className="text-blue-500">
@@ -56,7 +56,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="relative">
-            <img src="/images/students.png" alt="students" />
+            <img src="/images/students.svg" alt="students" />
             <img
               className="absolute w-[140px] left-[-3%] top-[-17%] xs:top-[-10%] sm:w-[180px] md:top-[-17%] md:left-[-15%] lg:w-[200px] xl:w-[276px] xl:top-[-26%]"
               src="/images/megaphone.svg"
@@ -69,7 +69,7 @@ const Homepage = () => {
             />
             <img
               className="absolute top-[-10%] right-0 w-[100px] sm:w-[150px] md:top-[-18%] lg:w-[200px] xl:right-[-12%] xl:w-[246px]"
-              src="/images/graduation-cap.png"
+              src="/images/graduation-cap.svg"
               alt="absolvire"
             />
           </div>

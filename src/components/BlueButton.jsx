@@ -28,7 +28,7 @@ const BlueButton = ({to, text, className}) => {
   };
 
   return (
-    <button onClick={handleClick} className={`bg-blue-400 text-white rounded-full py-2 px-6 text-center inline-block ${className}`}>
+    <button onClick={handleClick} className={`bg-blue-400 shadow-md text-white rounded-full py-2 px-6 text-center inline-block text-base lg:text-xl ${className}`}>
       {text}
     </button>
   )

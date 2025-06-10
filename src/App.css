@@ -18,10 +18,10 @@ button {
   left: 0;
   width: 100%;
   height: 40px;
+  /* background-color: red; */
   background: var(--color-blue-100);
   filter: blur(15px);
   pointer-events: none;
-  z-index: -20;
 }
 
 .blured-section::before {
@@ -51,6 +51,7 @@ button {
 
 @theme {
   --breakpoint-xs: 30rem;
+  --shadow-sm: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   --font-dm: DM Sans, sans-serif;
   --font-rubik: Rubik, sans-serif;
   --color-gray-100: #a3a3a3;
@@ -59,4 +60,5 @@ button {
   --color-blue-500: #242b53;
   --color-red-400: #ff2727;
   --color-red-500: #9a1917;
+
 }
