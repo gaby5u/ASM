@@ -1,7 +1,7 @@
 const ProjectCard = ({ title, icon }) => {
   return (
-    <div className="cursor-pointer text-center bg-white rounded-xl p-6 pt-8 shadow-sm max-h-[180px] text-blue-500">
-      <div className="bg-blue-100 rounded-full flex items-center justify-center inline-block p-6">
+    <div className="cursor-pointer text-center bg-white rounded-xl p-6 pt-8 shadow-sm max-h-[180px] text-blue-500 transition-all duration-400 hover:outline-1">
+      <div className="project-icon bg-blue-100 rounded-full flex items-center justify-center inline-block p-6">
         <svg
           width="34"
           height="29"

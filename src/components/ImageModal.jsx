@@ -73,7 +73,7 @@ useEffect(() => {
 
         <button
           ref={prevRef}
-          className="absolute z-50 flex justify-center items-center cursor-pointer left-[2%] top-1/2 transform -translate-y-1/2 p-4 rounded-full bg-blue-500 w-10 h-10 xl:w-16 xl:h-16"
+          className="absolute z-50 flex justify-center items-center cursor-pointer left-[2%] top-1/2 transform -translate-y-1/2 p-4 rounded-full bg-blue-500 w-10 h-10 xl:w-16 xl:h-16 transition-all duration-300 active:scale-95 active:bg-blue-400"
         >
           <svg
             className="w-3 h-5"
@@ -89,7 +89,7 @@ useEffect(() => {
         </button>
         <button
           ref={nextRef}
-          className="absolute z-50 flex justify-center items-center cursor-pointer right-[2%] top-1/2 transform -translate-y-1/2 p-4 rounded-full bg-blue-500 w-10 h-10 xl:w-16 xl:h-16"
+          className="absolute z-50 flex justify-center items-center cursor-pointer right-[2%] top-1/2 transform -translate-y-1/2 p-4 rounded-full bg-blue-500 w-10 h-10 xl:w-16 xl:h-16 transition-all duration-300 active:scale-95 active:bg-blue-400"
         >
           <svg
             className="w-3 h-5"

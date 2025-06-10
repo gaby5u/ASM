@@ -153,7 +153,7 @@ const Gallery = () => {
 
         <button
           ref={prevRef}
-          className="absolute top-1/2 z-10 transform bg-red p-2 bg-blue-500 shrink-0 rounded-full flex items-center justify-center left-2 w-8 h-8 md:w-10 md:h-10 md:left-[-10px] xl:w-16 xl:h-16 xl:left-[-5%]"
+          className="absolute top-1/2 z-10 transform bg-red p-2 bg-blue-500 shrink-0 rounded-full flex items-center justify-center left-2 w-8 h-8 md:w-10 md:h-10 md:left-[-10px] xl:w-16 xl:h-16 xl:left-[-5%] transition-all duration-300 active:scale-95 active:bg-blue-400"
         >
           <svg
             className="w-2 h-4 md:w-3 md:h-5"
@@ -169,7 +169,7 @@ const Gallery = () => {
         </button>
         <button
           ref={nextRef}
-          className="absolute top-1/2 z-10 transform bg-red p-2 bg-blue-500 shrink-0 rounded-full flex items-center justify-center right-2 w-8 h-8 md:w-10 md:h-10 md:right-[-10px] xl:w-16 xl:h-16 xl:right-[-5%]"
+          className="absolute top-1/2 z-10 transform bg-red p-2 bg-blue-500 shrink-0 rounded-full flex items-center justify-center right-2 w-8 h-8 md:w-10 md:h-10 md:right-[-10px] xl:w-16 xl:h-16 xl:right-[-5%] transition-all duration-300 active:scale-95 active:bg-blue-400"
         >
           <svg
             className="w-2 h-4 md:w-3 md:h-5"

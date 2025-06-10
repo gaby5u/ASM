@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="font-dm bg-blue-100 pt-8 mt-8 text-sm md:pt-16 md:mt-16 lg:text-lg">
       <div className="flex justify-around flex-wrap gap-4 text-blue-500 lg:gap-8 xl:flex-nowrap py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
-        <div className="w-full">
+        <div className="w-full xl:max-w-[360px]">
           <Link to="/">
             <svg
               className="w-full h-6 md:h-8 lg:h-15 lg:max-w-[300px]"
@@ -151,18 +151,18 @@ const Footer = () => {
           <div className="xl:w-[120px]">
             <h3 className="font-bold text-base mb-1 lg:text-2xl">Despre</h3>
             <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink to="/despre">Despre ASM</NavLink>
-              <NavLink to="/despre">Echipa</NavLink>
-              <NavLink to="/despre">Proiecte</NavLink>
-              <NavLink to="/">Galerie</NavLink>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Despre ASM</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre#echipa">Echipa</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre#proiecte">Proiecte</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/#galerie">Galerie</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/contact">Contact</NavLink>
             </div>
           </div>
           <div>
             <h3 className="font-bold text-base mb-1 lg:text-2xl ">Media</h3>
             <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink to="/despre">Noutăți</NavLink>
-              <NavLink to="/despre">Achiziții</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/noutăți">Noutăți</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/achiziții">Achiziții</NavLink>
             </div>
           </div>
           <div>
@@ -170,14 +170,14 @@ const Footer = () => {
               Transparență
             </h3>
             <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink to="/despre">Documente legale</NavLink>
-              <NavLink to="/despre">Documente financiare</NavLink>
-              <NavLink to="/despre">Activitate</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Documente legale</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Documente financiare</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Activitate</NavLink>
             </div>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
-            <div className="flex items-center gap-2 md:gap-6">
-              <div className="flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
+            <div className="social-media flex items-center gap-2 md:gap-6">
+              <div className="social-media-icon flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
                 <svg
                   width="17"
                   height="13"
@@ -191,12 +191,12 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <a href="mailto:asmoldova.info@gmail.com">
+              <a href="mailto:asmoldova.info@gmail.com" className="social-media-link">
                 asmoldova.info@gmail.com
               </a>
             </div>
-            <div className="flex items-center gap-2 md:gap-6">
-              <div className="flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
+            <div className="social-media flex items-center gap-2 md:gap-6">
+              <div className="social-media-icon flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
                 <svg
                   width="16"
                   height="15"
@@ -212,10 +212,10 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <a href="tel:+37376020693">+373 76 020 693</a>
+              <a href="tel:+37376020693" className="social-media-link">+373 76 020 693</a>
             </div>
-            <div className="flex items-center gap-2 md:gap-6">
-              <div className="flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
+            <div className="social-media flex items-center gap-2 md:gap-6">
+              <div className="social-media-icon flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
                 <svg
                   width="12"
                   height="19"
@@ -233,12 +233,13 @@ const Footer = () => {
                 href="https://www.facebook.com/asmoldova"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="social-media-link"
               >
                 Alianța Studenților din Moldova
               </a>
             </div>
-            <div className="flex items-center gap-2 md:gap-6">
-              <div className="flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
+            <div className="social-media flex items-center gap-2 md:gap-6">
+              <div className="social-media-icon flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
                 <svg
                   width="19"
                   height="19"
@@ -256,12 +257,13 @@ const Footer = () => {
                 href="https://www.instagram.com/as.moldova/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="social-media-link"
               >
                 as.moldova
               </a>
             </div>
-            <div className="flex items-center gap-2 md:gap-6">
-              <div className="flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
+            <div className="social-media flex items-center gap-2 md:gap-6">
+              <div className="social-media-icon flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
                 <svg
                   width="19"
                   height="15"
@@ -279,6 +281,7 @@ const Footer = () => {
                 href="https://t.me/asmoldova"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="social-media-link"
               >
                 @asmoldova
               </a>

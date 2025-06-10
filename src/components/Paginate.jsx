@@ -101,7 +101,7 @@ const Paginate = () => {
               className={`rounded-full font-bold py-2 px-4 sm:py-3 sm:px-5 ${
                 currentPage === page
                   ? "bg-blue-500 text-white"
-                  : "bg-gray-transparent border text-blue-500 hover:bg-blue-100"
+                  : "bg-gray-transparent border text-blue-500 transition-all duration-200 hover:bg-[#dbe6ff]"
               }`}
             >
               {page + 1}

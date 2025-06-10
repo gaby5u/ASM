@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 
 import BgImage from "../assets/line.png";
 import BgImageElements from "../assets/elements1.png";
@@ -11,9 +12,20 @@ import Gallery from "../components/Gallery";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useLocation } from "react-router";
 import "swiper/css";
 
 const Homepage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#galerie") {
+      const element = document.getElementById("galerie");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
     <>
@@ -38,11 +50,16 @@ const Homepage = () => {
                 Completează chestionarul și fă-ți vocea auzită – suntem alături
                 de tine.
               </p>
-              <button className="flex items-center justify-between gap-10 bg-blue-500 text-white rounded-full text-sm px-4 py-2 lg:text-xl lg:px-8 lg:py-5">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeuAVWyYF3NDL4zLAScNairXyxjTLAGy_m4MsMrJfvMRbcv4A/viewform"
+                target="_blank"
+                className="group flex items-center w-full max-w-[310px] justify-between gap-10 bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white rounded-full text-sm px-4 py-2 lg:text-xl lg:px-8 lg:py-5 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95 active:shadow-none"
+              >
                 Completează acum
                 <svg
                   width="27"
                   height="26"
+                  className="transition-transform duration-300 group-hover:translate-x-2 group-active:translate-x-3"
                   viewBox="0 0 27 26"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +69,7 @@ const Homepage = () => {
                     fill="white"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
           <div className="relative">
@@ -260,13 +277,20 @@ const Homepage = () => {
           ></CardNews>
         </div>
         <div className="text-center">
-          <BlueButton text="Vezi toate noutățile" className="mt-8 md:mt-16"/>
+          <BlueButton
+            to="/noutăți"
+            text="Vezi toate noutățile"
+            className="mt-8 md:mt-16"
+          />
         </div>
       </section>
 
-      <section className="py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
+      <section
+        id="galerie"
+        className="py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8"
+      >
         <Title subtitle="galerie" title="Retrăiește momentele" />
-        <Gallery/>
+        <Gallery />
       </section>
     </>
   );

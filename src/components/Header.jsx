@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import { NavLink, Link } from "react-router";
 
@@ -7,6 +7,7 @@ import "../styles/navbar.css";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,24 @@ const Header = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header>
@@ -168,6 +187,7 @@ const Header = () => {
         </Link>
 
         <ul
+          ref={menuRef}
           className={`${
             isMenuOpen
               ? "flex-col fixed top-0 right-0 bottom-0 bg-white shadow-sm px-10 py-32 h-full w-[70%] justify-start"
@@ -254,9 +274,11 @@ const Header = () => {
         </ul>
 
         <div className="flex items-center gap-4">
-          <button className="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12">
+          <button
+            className="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12 transition-all duration-300 ease-out hover:bg-blue-400 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 active:bg-blue-500 active:scale-95 group"
+          >
             <svg
-              className="w-full h-4 lg:h-6"
+              className="w-full h-4 lg:h-6 transition-transform duration-300 group-hover:scale-115 group-active:scale-110"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

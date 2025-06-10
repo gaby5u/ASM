@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import BgImage from "../assets/about-bg.png";
 import Title from "../components/Title";
 import BlueButton from "../components/BlueButton";
@@ -5,8 +6,25 @@ import StateCard from "../components/cards/StateCard";
 import Objective from "../components/Objective";
 import Paginate from "../components/Paginate";
 import TeamMember from "../components/cards/TeamMember";
+import { Link, useLocation } from "react-router";
 
 const About = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    switch(location.hash) {
+      case '#echipa': {
+        const element = document.getElementById('echipa');
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      break;
+      case '#proiecte': {
+        const element = document.getElementById('proiecte');
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <section
@@ -31,7 +49,7 @@ const About = () => {
               auzită acolo unde contează.
             </p>
             <BlueButton
-              to=""
+              to="#echipa"
               text="Vezi echipa"
               className="px-16 my-8 xl:my-16"
             />
@@ -165,9 +183,9 @@ const About = () => {
                 Fii vocea schimbării alături de noi — implică-te ca voluntar.
               </p>
             </div>
-            <button className="border rounded-full py-2 px-5 text-blue-400 text-sm lg:text-base whitespace-nowrap">
+            <Link to="/contact" className="contact-button border rounded-full py-2 px-5 text-blue-400 text-sm lg:text-base whitespace-nowrap hover:text-white">
               Contactează-ne
-            </button>
+            </Link>
           </div>
         </div>
         <div className="bg-blue-100 py-4 px-4 rounded-xl flex flex-col justify-center items-start w-full sm:py-8 sm:px-8 md:py-10 md:px-12">
@@ -180,7 +198,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="blured-section bg-blue-100 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50">
+      <section id="proiecte" className="blured-section bg-blue-100 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50">
         <Title
           subtitle="fapte,  nu vorbe"
           title="Proiectele noastre"
@@ -189,7 +207,7 @@ const About = () => {
         <Paginate />
       </section>
 
-      <section className="text-blue-500 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
+      <section id="echipa" className="text-blue-500 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
         <div className="flex flex-wrap justify-between sm:flex-nowrap items-center bg-blue-100 rounded-xl px-4 py-6 my-8 md:my-16 md:px-18 md:py-10">
           <div className="w-full max-w-[820px]">
             <Title
@@ -223,7 +241,7 @@ const About = () => {
           <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
             Componența Boardului
           </h2>
-          <div className="flex flex-wrap items-center gap-5 my-4 md:my-6">
+          <div className="flex flex-wrap items-center gap-2 my-4 md:gap-5 md:my-6">
             <TeamMember
               src="/images/teamMembers/Cristina-Talmazan.jpg"
               name="Adelina Fărîmă"
@@ -245,10 +263,10 @@ const About = () => {
           </div>
           </div>
           <div>
-          <h2 className="font-rubik mt-18 font-bold text-xl lg:text-[32px]">
+          <h2 className="font-rubik mt-6 font-bold text-xl md:mt-18 lg:text-[32px]">
             Departamentul PR și Comunicare
           </h2>
-          <div className="flex flex-wrap items-center gap-5 my-4 md:my-6">
+          <div className="flex flex-wrap items-center gap-2 my-4 md:gap-5 md:my-6">
             <TeamMember
               src="/images/teamMembers/Cristina-Talmazan.jpg"
               name="Cristina Talmazan"

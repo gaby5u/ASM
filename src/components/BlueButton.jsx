@@ -16,19 +16,16 @@ const BlueButton = ({to, text, className}) => {
     } else if (to.includes("#")) {
       // Navigare pe altă pagină + secțiune
       const [path, hash] = to.split("#");
-      navigate(path, {
-        state: { scrollToId: hash }
-      });
+      navigate(`${path}#${hash}`)
     } else {
       // Navigare simplă
       navigate(to);
     }
 
-    if (props.onClick) props.onClick(e);
   };
 
   return (
-    <button onClick={handleClick} className={`bg-blue-400 shadow-md text-white rounded-full py-2 px-6 text-center inline-block text-base lg:text-xl ${className}`}>
+    <button onClick={handleClick} className={`blue-button bg-blue-400 shadow-md text-white rounded-full py-2 px-6 text-center inline-block text-base lg:text-xl ${className}`}>
       {text}
     </button>
   )
