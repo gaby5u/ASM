@@ -106,7 +106,7 @@ const Gallery = () => {
             >
               {[0, 5, 10].map((startIndex, i) => (
                 <SwiperSlide key={i}>
-                  <div className="gallery-grid">
+                  <div className="gallery-grid mb-8 md:mb-16">
                     {images
                       .slice(startIndex, startIndex + 5)
                       .map((src, idx) => (

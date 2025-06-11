@@ -266,7 +266,7 @@ const About = () => {
           <h2 className="font-rubik mt-6 font-bold text-xl md:mt-18 lg:text-[32px]">
             Departamentul PR și Comunicare
           </h2>
-          <div className="flex flex-wrap items-center gap-2 my-4 md:gap-5 md:my-6">
+          <div className="flex flex-wrap items-center gap-2 my-4 mb-8 md:gap-5 md:my-6 md:mb-16">
             <TeamMember
               src="/images/teamMembers/Cristina-Talmazan.jpg"
               name="Cristina Talmazan"
