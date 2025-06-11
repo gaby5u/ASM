@@ -46,19 +46,6 @@ const CardNews = ({ date, category, title, description, img, alt }) => {
 
   const [bgColor, textColor] = getColorsCategory(category);
 
-  const shortenTitle = (title) => {
-    if (title.length > 69) {
-      return title.slice(0, 69) + "...";
-    }
-    return title;
-  }
-  const shortenText = (description) => {
-    if (description.length > 105) {
-      return description.slice(0, 105) + "...";
-    }
-    return description;
-  }
-
   return (
     <div className="cursor-pointer rounded-xl bg-white shadow-sm max-w-[470px]">
       <div>
@@ -70,8 +57,8 @@ const CardNews = ({ date, category, title, description, img, alt }) => {
         <div style={{ backgroundColor: bgColor }} className=" rounded-full inline-block py-2 px-6">
           <p style={{ color: textColor }} className="text-xs mdtext-sm">{category}</p>
         </div>
-        <h3 className="font-bold text-base my-2 lg:text-2xl">{shortenTitle(title)}</h3>
-        <p className="text-sm pb-4 lg:text-lg">{shortenText(description)}</p>
+        <h3 className="font-bold text-base my-2 line-clamp-2 lg:text-2xl">{title}</h3>
+        <p className="text-sm line-clamp-2 lg:text-lg">{description}</p>
         <button className="flex items-center justify-center gap-2 bg-none text-blue-400 text-sm lg:text-lg">
           Află mai multe
           <svg
