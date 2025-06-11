@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
 
-const BlueButton = ({to, text, className}) => {
+const BlueButton = ({to, text, className, ...props}) => {
 
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const BlueButton = ({to, text, className}) => {
   };
 
   return (
-    <button onClick={handleClick} className={`blue-button bg-blue-400 shadow-md text-white rounded-full py-2 px-6 text-center inline-block text-base lg:text-xl ${className}`}>
+    <button onClick={handleClick} {...props} className={`blue-button bg-blue-400 shadow-md text-white rounded-full py-2 px-6 text-center inline-block text-base lg:text-xl ${className}`}>
       {text}
     </button>
   )

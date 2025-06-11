@@ -4,7 +4,7 @@ import Document from "../components/cards/Document";
 const Transparency = () => {
   return (
     <>
-      <section className="blured-section bg-blue-100 text-blue-500 px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+      <section className="blured-section bg-blue-100 text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
         <HeadingText />
         <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
           Documente legale și administrative

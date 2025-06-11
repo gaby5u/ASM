@@ -54,7 +54,8 @@ button {
   --shadow-sm: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   --font-dm: DM Sans, sans-serif;
   --font-rubik: Rubik, sans-serif;
-  --color-gray-100: #a3a3a3;
+  --color-gray-100: #F0F0F0;
+  --color-gray-200: #a3a3a3;
   --color-blue-100: #f5f8ff;
   --color-blue-400: #4965ab;
   --color-blue-500: #242b53;

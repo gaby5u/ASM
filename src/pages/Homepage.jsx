@@ -31,12 +31,12 @@ const Homepage = () => {
     <>
       <section
         style={{ backgroundImage: `url(${BgImage})` }}
-        className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm py-4 px-2 pt-[60px] sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6 xl:pt-[96px]"
+        className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50"
       >
         <div className="flex flex-wrap items-center justify-center gap-8 py-4 sm:py-16 md:flex-nowrap md:justify-between xl:py-25 xl:items-start">
           <div className="text-blue-500">
             <div className="bg-white shadow-sm rounded-full inline-block px-8 py-2">
-              <p className="text-gray-100 text-sm lg:text-base">
+              <p className="text-gray-200 text-sm lg:text-base">
                 Implicare. Respect. Drepturi
               </p>
             </div>
@@ -104,7 +104,7 @@ const Homepage = () => {
               highlited="Alianța Studenților din Moldova"
               className="xl:max-w-[800px]"
             />
-            <div className="flex flex-col gap-8 border-l border-[#F0F0F0] ml-[10px] lg:pt-8 lg:gap-12 lg:ml-0">
+            <div className="flex flex-col gap-8 border-l border-gray-100 ml-[10px] lg:pt-8 lg:gap-12 lg:ml-0">
               <CaractWhoAreWe
                 title="Viziunea noastră"
                 description="Educație de calitate, accesibilă tuturor studenților, șanse egale și implicare deplină în guvernanța universitară."
