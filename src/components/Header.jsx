@@ -1,10 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 
 import { NavLink, Link } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 import "../styles/navbar.css";
 
 const Header = () => {
+  const { user, signInWithGoogle, logOut } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -273,30 +275,57 @@ const Header = () => {
           </li>
         </ul>
 
-        <div className="flex items-center gap-4">
-          <button
-            className="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12 transition-all duration-300 ease-out hover:bg-blue-400 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 active:bg-blue-500 active:scale-95 group"
-          >
-            <svg
-              className="w-full h-4 lg:h-6 transition-transform duration-300 group-hover:scale-115 group-active:scale-110"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="flex items-center gap-2">
+          {user ? (
+            <>
+              <img
+                src={user?.photoURL}
+                alt="Profile"
+                className=" w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12"
+              />
+              <button
+                onClick={logOut}
+                className="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12 transition-all duration-300 ease-out hover:bg-blue-400 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 active:bg-blue-500 active:scale-95 group"
+              >
+                <svg
+                  className="w-full h-4 lg:h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.15909 22C3.56534 22 3.05723 21.7934 2.63477 21.3804C2.21231 20.9673 2.00072 20.4701 2 19.8889V5.11111C2 4.53055 2.21159 4.03374 2.63477 3.62067C3.05795 3.20759 3.56606 3.0007 4.15909 3H10.6364C10.9422 3 11.1988 3.10133 11.4061 3.304C11.6134 3.50667 11.7166 3.75718 11.7159 4.05555C11.7152 4.35392 11.6116 4.60479 11.405 4.80817C11.1984 5.01154 10.9422 5.11252 10.6364 5.11111H4.15909V19.8889H10.6364C10.9422 19.8889 11.1988 19.9902 11.4061 20.1929C11.6134 20.3955 11.7166 20.6461 11.7159 20.9444C11.7152 21.2428 11.6116 21.4937 11.405 21.697C11.1984 21.9004 10.9422 22.0014 10.6364 22H4.15909ZM17.3026 13.5555H9.55682C9.25095 13.5555 8.99473 13.4542 8.78818 13.2515C8.58163 13.0489 8.47799 12.7984 8.47727 12.5C8.47655 12.2016 8.58019 11.9511 8.78818 11.7484C8.99617 11.5458 9.25239 11.4444 9.55682 11.4444H17.3026L15.2784 9.46527C15.0805 9.27175 14.9815 9.03425 14.9815 8.75277C14.9815 8.47129 15.0805 8.225 15.2784 8.01389C15.4763 7.80277 15.7282 7.69264 16.0341 7.6835C16.34 7.67435 16.6009 7.77568 16.8168 7.9875L20.6761 11.7611C20.892 11.9722 21 12.2185 21 12.5C21 12.7815 20.892 13.0278 20.6761 13.2389L16.8168 17.0125C16.6009 17.2236 16.3446 17.3249 16.0481 17.3165C15.7516 17.308 15.495 17.1979 15.2784 16.9861C15.0805 16.775 14.9862 16.5245 14.9956 16.2345C15.0049 15.9446 15.1082 15.7025 15.3054 15.5083L17.3026 13.5555Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={signInWithGoogle}
+              className="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12 transition-all duration-300 ease-out hover:bg-blue-400 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 active:bg-blue-500 active:scale-95 group"
             >
-              <path
-                d="M19.7269 20.447C19.2719 19.171 18.267 18.044 16.87 17.24C15.473 16.436 13.7609 16 11.9999 16C10.2389 16 8.52695 16.436 7.12995 17.24C5.73295 18.044 4.72795 19.171 4.27295 20.447"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-full h-4 lg:h-6 transition-transform duration-300 group-hover:scale-115 group-active:scale-110"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.7269 20.447C19.2719 19.171 18.267 18.044 16.87 17.24C15.473 16.436 13.7609 16 11.9999 16C10.2389 16 8.52695 16.436 7.12995 17.24C5.73295 18.044 4.72795 19.171 4.27295 20.447"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          )}
           <svg
             className="cursor-pointer block md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
