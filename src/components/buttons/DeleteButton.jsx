@@ -5,7 +5,7 @@ const DeleteButton = ({ id, collectionName, onDelete }) => {
   const deleteElement = async () => {
     try {
       const toDeleteElement = doc(db, collectionName, id);
-      const conf = confirm("Ești sigur că vrei să ștergi noutatea?");
+      const conf = confirm("Ești sigur că vrei să ștergi?");
       if (!conf) return;
 
       await deleteDoc(toDeleteElement);

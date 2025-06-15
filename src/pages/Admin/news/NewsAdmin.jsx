@@ -47,6 +47,7 @@ const NewsAdmin = () => {
               title={newsItem.title}
               id={newsItem.id}
               collectionName="news"
+              to="noutati"
               onDelete={() => {
                 setNewsList((prev) =>
                   prev.filter((item) => item.id !== newsItem.id)
