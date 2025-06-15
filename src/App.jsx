@@ -13,7 +13,16 @@ import Transparency from "./pages/Transparency.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
-import Admin from "./pages/Admin.jsx";
+import AdminHome from "./pages/Admin/AdminHome.jsx";
+import ProjectsAdmin from "./pages/Admin/projects/ProjectsAdmin.jsx";
+import AddProject from "./pages/Admin/projects/AddProject.jsx";
+import EditProject from "./pages/Admin/projects/EditProject.jsx";
+import NewsAdmin from "./pages/Admin/news/NewsAdmin.jsx";
+import AddNew from "./pages/Admin/news/AddNew.jsx";
+import EditNew from "./pages/Admin/news/EditNew.jsx";
+import AcquisitionsAdmin from "./pages/Admin/acquisitions/AcquisitionsAdmin.jsx";
+import AddAcquisition from "./pages/Admin/acquisitions/AddAcquisition.jsx";
+import EditAcquisition from "./pages/Admin/acquisitions/EditAcquisition.jsx";
 
 function Layout() {
   const { pathname } = useLocation();
@@ -34,15 +43,87 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Homepage />} />
             <Route path="/despre" element={<About />} />
-            <Route path="/noutăți" element={<News />} />
-            <Route path="/achiziții" element={<Acquisitions />} />
-            <Route path="/transparență" element={<Transparency />} />
+            <Route path="/noutati" element={<News />} />
+            <Route path="/achizitii" element={<Acquisitions />} />
+            <Route path="/transparenta" element={<Transparency />} />
             <Route path="/contact" element={<Contact />} />
             <Route
               path="/admin"
               element={
                 <AdminRoute>
-                  <Admin />
+                  <AdminHome />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/proiecte"
+              element={
+                <AdminRoute>
+                  <ProjectsAdmin />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/proiecte/adaugare"
+              element={
+                <AdminRoute>
+                  <AddProject />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/proiecte/editare/:id"
+              element={
+                <AdminRoute>
+                  <EditProject />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/noutati"
+              element={
+                <AdminRoute>
+                  <NewsAdmin />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/noutati/adaugare"
+              element={
+                <AdminRoute>
+                  <AddNew />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/noutati/editare/:id"
+              element={
+                <AdminRoute>
+                  <EditNew />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/achizitii"
+              element={
+                <AdminRoute>
+                  <AcquisitionsAdmin />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/achizitii/adaugare"
+              element={
+                <AdminRoute>
+                  <AddAcquisition />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/achizitii/editare/:id"
+              element={
+                <AdminRoute>
+                  <EditAcquisition />
                 </AdminRoute>
               }
             />

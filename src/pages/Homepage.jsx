@@ -7,7 +7,7 @@ import Title from "../components/Title";
 import PartenerSlide from "../components/PartenerSlide";
 import CaractWhoAreWe from "../components/CaractWhoAreWe";
 import CardNews from "../components/cards/CardNews";
-import BlueButton from "../components/BlueButton";
+import BlueButton from "../components/buttons/BlueButton";
 import Gallery from "../components/Gallery";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -278,7 +278,7 @@ const Homepage = () => {
         </div>
         <div className="text-center">
           <BlueButton
-            to="/noutăți"
+            to="/noutati"
             text="Vezi toate noutățile"
             className="mt-8 md:mt-16"
           />

@@ -1,6 +1,6 @@
 
 const ErrorText = ({errorMessage}) => {
-  if (!errorMessage) return nullș
+  if (!errorMessage) return null;
   return (
     <p className="text-sm text-red-500">{errorMessage}</p>
   )

@@ -235,7 +235,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/noutăți"
+              to="/noutati"
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
@@ -245,7 +245,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/achiziții"
+              to="/achizitii"
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
@@ -255,7 +255,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/transparență"
+              to="/transparenta"
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }

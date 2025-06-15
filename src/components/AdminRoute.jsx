@@ -23,7 +23,7 @@ const AdminRoute = ({children}) => {
 
   if (isLoading) return <p>Loading...</p>
 
-  return isAdmin ? children : <Navigate to="/"/>
+  return isAdmin ? children : <Navigate to="*"/>
 }
 
 export default AdminRoute

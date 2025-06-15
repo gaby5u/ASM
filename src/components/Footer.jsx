@@ -161,8 +161,8 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-base mb-1 lg:text-2xl ">Media</h3>
             <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/noutăți">Noutăți</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/achiziții">Achiziții</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/noutati">Noutăți</NavLink>
+              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/achizitii">Achiziții</NavLink>
             </div>
           </div>
           <div>

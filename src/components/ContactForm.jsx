@@ -6,7 +6,7 @@ import emailjs from "emailjs-com";
 import InputText from "./inputs/InputText";
 import Textarea from "./inputs/Textarea";
 import ErrorText from "./alerts/ErrorText";
-import BlueButton from "./BlueButton";
+import BlueButton from "./buttons/BlueButton";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("Prenumele este obligatoriu!"),
@@ -55,7 +55,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white rounded-xl shadow-sm w-full py-4 px-4 dm:py-8 dm:px-8 lg:py-12 lg:px-12"
+      className="bg-white rounded-xl shadow-sm w-full p-4 sm:p-8 lg:p-12"
     >
       <h2 className="text-blue-500 font-rubik font-bold text-xl lg:text-[32px]">
         Devino membru al echipei noastre!

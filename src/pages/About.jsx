@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import BgImage from "../assets/about-bg.png";
 import Title from "../components/Title";
-import BlueButton from "../components/BlueButton";
+import BlueButton from "../components/buttons/BlueButton";
 import StateCard from "../components/cards/StateCard";
 import Objective from "../components/Objective";
 import Paginate from "../components/Paginate";
@@ -12,15 +12,16 @@ const About = () => {
   const location = useLocation();
 
   useEffect(() => {
-    switch(location.hash) {
-      case '#echipa': {
-        const element = document.getElementById('echipa');
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-      break;
-      case '#proiecte': {
-        const element = document.getElementById('proiecte');
-        element.scrollIntoView({ behavior: 'smooth' });
+    switch (location.hash) {
+      case "#echipa":
+        {
+          const element = document.getElementById("echipa");
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+        break;
+      case "#proiecte": {
+        const element = document.getElementById("proiecte");
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [location]);
@@ -183,7 +184,10 @@ const About = () => {
                 Fii vocea schimbării alături de noi — implică-te ca voluntar.
               </p>
             </div>
-            <Link to="/contact" className="contact-button border rounded-full py-2 px-5 text-blue-400 text-sm lg:text-base whitespace-nowrap hover:text-white">
+            <Link
+              to="/contact"
+              className="contact-button border rounded-full py-2 px-5 text-blue-400 text-sm lg:text-base whitespace-nowrap hover:text-white"
+            >
               Contactează-ne
             </Link>
           </div>
@@ -198,7 +202,10 @@ const About = () => {
         </div>
       </section>
 
-      <section id="proiecte" className="blured-section bg-blue-100 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50">
+      <section
+        id="proiecte"
+        className="blured-section bg-blue-100 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50"
+      >
         <Title
           subtitle="fapte,  nu vorbe"
           title="Proiectele noastre"
@@ -207,7 +214,10 @@ const About = () => {
         <Paginate />
       </section>
 
-      <section id="echipa" className="text-blue-500 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
+      <section
+        id="echipa"
+        className="text-blue-500 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6"
+      >
         <div className="flex flex-wrap justify-between sm:flex-nowrap items-center bg-blue-100 rounded-xl px-4 py-6 my-8 md:my-16 md:px-18 md:py-10">
           <div className="w-full max-w-[820px]">
             <Title
@@ -238,48 +248,48 @@ const About = () => {
 
         <div className="font-dm">
           <div>
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Componența Boardului
-          </h2>
-          <div className="flex flex-wrap items-center gap-2 my-4 md:gap-5 md:my-6">
-            <TeamMember
-              src="/images/teamMembers/Cristina-Talmazan.jpg"
-              name="Adelina Fărîmă"
-              funct="Administrator, Președinte"
-              gmail="adelinafarima.info@gmail.com"
-            />
-            <TeamMember
-              src="/images/teamMembers/Yehor-Yudaiev.jpg"
-              name="Yehor Yudaiev"
-              funct="Vicepreședinte"
-              gmail="yehor.yudaiev@gmail.com"
-            />
-            <TeamMember
-              src="/images/teamMembers/Denis-Parnăo.jpg"
-              name="Denis Parnăo"
-              funct="Secretar General"
-              gmail="denisparnao4@gmail.com"
-            />
-          </div>
+            <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
+              Componența Boardului
+            </h2>
+            <div className="flex flex-wrap items-center gap-2 my-4 md:gap-5 md:my-6">
+              <TeamMember
+                src="/images/teamMembers/Cristina-Talmazan.jpg"
+                name="Adelina Fărîmă"
+                funct="Administrator, Președinte"
+                gmail="adelinafarima.info@gmail.com"
+              />
+              <TeamMember
+                src="/images/teamMembers/Yehor-Yudaiev.jpg"
+                name="Yehor Yudaiev"
+                funct="Vicepreședinte"
+                gmail="yehor.yudaiev@gmail.com"
+              />
+              <TeamMember
+                src="/images/teamMembers/Denis-Parnăo.jpg"
+                name="Denis Parnăo"
+                funct="Secretar General"
+                gmail="denisparnao4@gmail.com"
+              />
+            </div>
           </div>
           <div>
-          <h2 className="font-rubik mt-6 font-bold text-xl md:mt-18 lg:text-[32px]">
-            Departamentul PR și Comunicare
-          </h2>
-          <div className="flex flex-wrap items-center gap-2 my-4 mb-8 md:gap-5 md:my-6 md:mb-16">
-            <TeamMember
-              src="/images/teamMembers/Cristina-Talmazan.jpg"
-              name="Cristina Talmazan"
-              funct="Designer"
-              gmail=" kristinatalmazan7@gmail.com"
-            />
-            <TeamMember
-              src="/images/teamMembers/Valeria-Tofan.jpg"
-              name="Valeria Tofan"
-              funct="Comunicator"
-              gmail="valeriatofan2006@gmail.com"
-            />
-          </div>
+            <h2 className="font-rubik mt-6 font-bold text-xl md:mt-18 lg:text-[32px]">
+              Departamentul PR și Comunicare
+            </h2>
+            <div className="flex flex-wrap items-center gap-2 my-4 mb-8 md:gap-5 md:my-6 md:mb-16">
+              <TeamMember
+                src="/images/teamMembers/Cristina-Talmazan.jpg"
+                name="Cristina Talmazan"
+                funct="Designer"
+                gmail=" kristinatalmazan7@gmail.com"
+              />
+              <TeamMember
+                src="/images/teamMembers/Valeria-Tofan.jpg"
+                name="Valeria Tofan"
+                funct="Comunicator"
+                gmail="valeriatofan2006@gmail.com"
+              />
+            </div>
           </div>
         </div>
       </section>
