@@ -40,9 +40,7 @@ const ProjectsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit, (errors) =>
-        console.log("ERRORS", errors)
-      )}
+      onSubmit={handleSubmit(onSubmit)}
       className="shadow-sm text-blue-500 bg-white rounded-xl max-w-[920px] mx-auto p-4 my-4 sm:p-8 sm:my-8 lg:p-12 lg:my-16"
     >
       <p className="text-base font-bold text-center mb-2 lg:text-2xl lg:mb-4">
