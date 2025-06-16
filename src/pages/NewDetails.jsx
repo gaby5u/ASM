@@ -29,7 +29,6 @@ const NewDetails = () => {
   }, []);
 
   useEffect(() => {
-    const findIfActual = () => {
       const currentDate = Date.now();
 
       const finishTimestamp = newItem?.finishDate?.seconds
@@ -39,8 +38,6 @@ const NewDetails = () => {
       if (finishTimestamp) {
         setIsActual(currentDate <= finishTimestamp);
       } else setIsActual(false);
-    };
-    findIfActual();
   }, [newItem]);
 
   const getColorsCategory = (categoryName) => {

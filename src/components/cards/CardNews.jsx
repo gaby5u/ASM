@@ -53,7 +53,7 @@ const CardNews = ({ newEl, onClick }) => {
     <div className="  rounded-xl bg-white shadow-sm max-w-[470px] h-full flex flex-col">
         <div className="relative">
           <img className="rounded-t-xl max-h-[250px] min-h-[250px] w-full h-full object-cover md:min-h-[300px]" src={newEl?.images[0]} alt={newEl?.title} />
-          <p className="text-sm bg-red-500 text-white absolute top-6 right-6 rounded-sm py-1 px-4 lg:text-lg">{newEl?.finishDate && format(newEl?.finishDate.toDate(), "dd.MM.yyyy")}</p>
+          <p className="text-sm bg-red-500 text-white absolute top-6 right-6 rounded-sm py-1 px-4 lg:text-lg">{newEl?.startDate && format(newEl?.startDate.toDate(), "dd.MM.yyyy")}</p>
         </div>
         <div className="flex flex-col p-6 text-blue-500 flex-1">
         <div style={{ backgroundColor: bgColor }} className="w-fit rounded-full py-2 px-6">

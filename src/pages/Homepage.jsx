@@ -6,7 +6,7 @@ import BgImageElements from "../assets/elements1.png";
 import Title from "../components/Title";
 import PartenerSlide from "../components/PartenerSlide";
 import CaractWhoAreWe from "../components/CaractWhoAreWe";
-import CardNews from "../components/cards/CardNews";
+import RecentNews from "../components/RecentNews";
 import BlueButton from "../components/buttons/BlueButton";
 import Gallery from "../components/Gallery";
 
@@ -226,56 +226,7 @@ const Homepage = () => {
 
       <section className="blured-section font-dm bg-blue-100 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
         <Title subtitle="noutăți" title="Cele mai proaspete evenimente" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
-          <CardNews
-            date="12.04.2025"
-            category="Evenimente"
-            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
-            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
-            img="/images/noutate.jpg"
-            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
-          ></CardNews>
-          <CardNews
-            date="12.04.2025"
-            category="Admitere"
-            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
-            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
-            img="/images/noutate.jpg"
-            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
-          ></CardNews>
-          <CardNews
-            date="12.04.2025"
-            category="Cercetări"
-            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
-            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
-            img="/images/noutate.jpg"
-            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
-          ></CardNews>
-          <CardNews
-            date="12.04.2025"
-            category="Întâlniri"
-            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
-            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
-            img="/images/noutate.jpg"
-            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
-          ></CardNews>
-          <CardNews
-            date="12.04.2025"
-            category="Advocacy"
-            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
-            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
-            img="/images/noutate.jpg"
-            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
-          ></CardNews>
-          <CardNews
-            date="12.04.2025"
-            category="Proiecte"
-            title="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de fdsjfkjd"
-            description="Discuții despre provocările actuale în educație și oportunitășile de dezvoltare pentru studenți kflsjfl fjksjfl ksj dflk sjdfkjsd"
-            img="/images/noutate.jpg"
-            alt="Curs de Fromare a Ambasadorilor Democrației în rândul tinerilor - de"
-          ></CardNews>
-        </div>
+        <RecentNews />
         <div className="text-center">
           <BlueButton
             to="/noutati"
