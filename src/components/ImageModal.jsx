@@ -11,16 +11,16 @@ const ImageModal = ({ src, nrImg, images, activity }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-useEffect(() => {
-  if (swiperInstance && prevRef.current && nextRef.current) {
-    swiperInstance.params.navigation.prevEl = prevRef.current;
-    swiperInstance.params.navigation.nextEl = nextRef.current;
+  useEffect(() => {
+    if (swiperInstance && prevRef.current && nextRef.current) {
+      swiperInstance.params.navigation.prevEl = prevRef.current;
+      swiperInstance.params.navigation.nextEl = nextRef.current;
 
-    swiperInstance.navigation.destroy();
-    swiperInstance.navigation.init();
-    swiperInstance.navigation.update();
-  }
-}, [swiperInstance]);
+      swiperInstance.navigation.destroy();
+      swiperInstance.navigation.init();
+      swiperInstance.navigation.update();
+    }
+  }, [swiperInstance]);
 
   return (
     <div className="fixed flex justify-center items-center z-1000 top-0 bottom-0 left-0 right-0 bg-[#0D0F1F] w-full h-full">
@@ -29,7 +29,7 @@ useEffect(() => {
         onClick={() => activity(false)}
       >
         <svg
-        className="w-[10px] h-[10px] md:w-4 md:h-4"
+          className="w-[10px] h-[10px] md:w-4 md:h-4"
           viewBox="0 0 17 17"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ useEffect(() => {
         {images?.map((imageSrc, index) => (
           <SwiperSlide key={index}>
             <img
-              src={`/images/gallery/${imageSrc}`}
+              src={imageSrc.startsWith("http") ? imageSrc : `${src}${imageSrc}`}
               alt={`Image ${index + 1}`}
               className="max-w-[90%] max-h-[80vh] object-contain mx-auto rounded-xl"
             />

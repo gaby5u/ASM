@@ -9,13 +9,16 @@ import UnorderedList from "../components/UnorderedList";
 const ProjectDetails = () => {
   const { id } = useParams();
   const [projects, setProjects] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, "projects", id);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setProjects(docSnap.data());
+      try {
+        const docRef = doc(db, "projects", id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setProjects(docSnap.data());
+        }
+      } catch (err) {
+        console.error(err);
       }
     };
     fetchData();

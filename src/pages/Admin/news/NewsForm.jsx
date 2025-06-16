@@ -26,8 +26,8 @@ const NewsForm = () => {
     try {
       const formattedData = {
         ...data,
-        startDate: format(new Date(data.startDate), "MM/dd/yyyy"),
-        finishDate: format(new Date(data.finishDate), "MM/dd/yyyy"),
+        startDate: new Date(data.startDate),
+        finishDate: new Date(data.finishDate),
       };
 
       await addDoc(newsCollectionRef, formattedData);

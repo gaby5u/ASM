@@ -11,7 +11,8 @@ button {
   z-index: 0;
 }
 
-.blured-section::after, .blured-section::before {
+.blured-section::after,
+.blured-section::before {
   content: "";
   position: absolute;
   bottom: -20px;
@@ -30,36 +31,64 @@ button {
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-areas:
-      "a a b"
-      "c d e";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
-    gap: 1rem;
-  }
+  display: grid;
+  grid-template-areas:
+    "a a b"
+    "c d e";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.news-gallery-grid {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "a c";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+}
+
+.new-area-a {
+  grid-area: a;
+}
+.new-area-b {
+  grid-area: b;
+}
+.new-area-c {
+  grid-area: c;
+}
 
 .swiper-pagination-fraction {
   color: #ffffff !important;
 }
 
-.area-a { grid-area: a; }
-.area-b { grid-area: b; }
-.area-c { grid-area: c; }
-.area-d { grid-area: d; }
-.area-e { grid-area: e; }
+.area-a {
+  grid-area: a;
+}
+.area-b {
+  grid-area: b;
+}
+.area-c {
+  grid-area: c;
+}
+.area-d {
+  grid-area: d;
+}
+.area-e {
+  grid-area: e;
+}
 
 @theme {
   --breakpoint-xs: 30rem;
   --shadow-sm: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   --font-dm: DM Sans, sans-serif;
   --font-rubik: Rubik, sans-serif;
-  --color-gray-100: #F0F0F0;
+  --color-gray-100: #f0f0f0;
   --color-gray-200: #a3a3a3;
   --color-blue-100: #f5f8ff;
   --color-blue-400: #4965ab;
   --color-blue-500: #242b53;
   --color-red-400: #ff2727;
   --color-red-500: #9a1917;
-
 }

@@ -15,7 +15,7 @@ export const newsSchema = yup.object().shape({
   associatedProject: yup
     .string()
     .required("Proiectul asociat este obligatoriu"),
-  description: yup.string().required("Descrierea este obligatorie"),
+  description: yup.string().required("Descrierea este obligatorie").max(518, "Descrierea nu poate depăși numarul de caractere"),
   objection: yup
     .array()
     .of(

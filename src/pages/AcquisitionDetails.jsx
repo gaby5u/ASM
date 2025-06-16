@@ -12,22 +12,27 @@ const AcquisitionDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+    try {
       const docRef = doc(db, "acquisitions", id);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setAcquisition(docSnap.data());
       }
+    } catch(err) {
+      console.error(err);
+    }
     };
     fetchData();
   }, [id]);
 
-  if (!acquisition) return <p>Loading...</p>;
+  if  (!acquisition) return <p>Loading...</p>;
 
+  
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
         <Title
-          title={acquisition.title}
+          title={acquisition?.title}
           subtitle="Oportunitate de parteneriat"
         />
         <img
@@ -36,7 +41,7 @@ const AcquisitionDetails = () => {
           className="w-[90px] sm:w-[126px] lg:w-[226px]"
         />
       </div>
-      <p className="my-0 text-base lg:text-2xl">{acquisition.description}</p>
+      <p className="my-0 text-base lg:text-2xl">{acquisition?.description}</p>
       <div className="w-full bg-white rounded-xl shadow-sm flex flex-wrap items-center justify-center gap-[10%] py-4 px-6 my-4 lg:py-6 lg:px-10 lg:mt-12 lg:my-8">
         <div className="flex my-2 gap-4 items-center">
           <svg
@@ -52,7 +57,7 @@ const AcquisitionDetails = () => {
             />
           </svg>
           <p className="text-sm lg:text-lg">
-            {acquisition.startDate &&
+            {acquisition?.startDate &&
               format(acquisition.startDate.toDate(), "dd.MM.yyyy")}
           </p>
         </div>
@@ -76,7 +81,7 @@ const AcquisitionDetails = () => {
             />
           </svg>
           <p className="text-sm lg:text-lg">
-            {acquisition.finishDate &&
+            {acquisition?.finishDate &&
               format(acquisition.finishDate.toDate(), "dd.MM.yyyy")}
           </p>
         </div>
@@ -95,18 +100,18 @@ const AcquisitionDetails = () => {
               fill="#4965AB"
             />
           </svg>
-          <p className="text-sm lg:text-lg">{acquisition.location}</p>
+          <p className="text-sm lg:text-lg">{acquisition?.location}</p>
         </div>
       </div>
 
       <div className="shadow-sm bg-white rounded-xl flex flex-col justify-evenly gap-6 items-start py-8 px-6 my-4 md:flex-row lg:py-16 lg:px-10 lg:my-8">
         <UnorderedList
           title="Servicii solicitate"
-          category={acquisition.services}
+          category={acquisition?.services}
         />
         <UnorderedList
           title="Criterii de selecție"
-          category={acquisition.selectionCriteria}
+          category={acquisition?.selectionCriteria}
         />
       </div>
 

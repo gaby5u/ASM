@@ -7,8 +7,7 @@ const Transparency = () => {
       <section className="blured-section bg-blue-100 text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
         <HeadingText
           title="Transparență"
-          description="Cele mai recente anunțuri legate de colaborări, sponsorizări și
-        achiziții pentru inițiativele noastre viitoare"
+          description="Documente legale, administrative și politici interne care reflectă angajamentul nostru față de transparență și responsabilitate"
         />
         <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
           Documente legale și administrative

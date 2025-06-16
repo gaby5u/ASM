@@ -8,6 +8,7 @@ import Footer from "./components/Footer.jsx";
 import Homepage from "./pages/Homepage.jsx";
 import About from "./pages/About.jsx";
 import News from "./pages/News.jsx";
+import NewsDetails from "./pages/NewDetails.jsx";
 import Acquisitions from "./pages/Acquisitions.jsx";
 import AcquisitionDetails from "./pages/AcquisitionDetails.jsx";
 import ProjectDetails from "./pages/ProjectDetails.jsx";
@@ -46,6 +47,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/despre" element={<About />} />
             <Route path="/noutati" element={<News />} />
+            <Route path="/noutati/:id" element={<NewsDetails />} />
             <Route path="/achizitii" element={<Acquisitions />} />
             <Route path="/achizitii/:id" element={<AcquisitionDetails />} />
             <Route path="/proiecte/:id" element={<ProjectDetails />} />

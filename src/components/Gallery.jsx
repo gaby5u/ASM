@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Keyboard, Mousewheel, Navigation } from "swiper/modules";
+import { Keyboard, Navigation } from "swiper/modules";
 import { useRef, useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -49,7 +49,7 @@ const Gallery = () => {
     <>
       {isActiveModal && (
         <ImageModal
-          src={modalImg}
+          src="/images/gallery/"
           nrImg={modalImageNumber}
           images={images}
           activity={setIsActiveModal}

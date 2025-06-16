@@ -1,15 +1,17 @@
-const CardNews = ({ date, category, title, description, img, alt }) => {
+import { format } from "date-fns";
 
-  const getColorsCategory = (category) => {
-    const normalizedCategory = category.toLowerCase()?.trim();
+const CardNews = ({ newEl, onClick }) => {
+  const getColorsCategory = (categoryName) => {
+    if (!categoryName) return ["#ffffff", "#000000"];
+    const normalizedCategory = categoryName.toLowerCase()?.trim();
 
     switch (normalizedCategory) {
       case "evenimente":
       case "eveniment":
-        return ["#DCFCE7", "#30784B"];
+        return ["#BDFFD4", "#30784B"];
 
-      case "admitere": 
-        return ["#F5F8FF", "#4965AB"];
+      case "admitere":
+        return ["#C5D7FF", "#4965AB"];
 
       case "cercetari":
       case "cercetare":
@@ -28,7 +30,7 @@ const CardNews = ({ date, category, title, description, img, alt }) => {
       case "proiecte":
       case "proiect":
         return ["#FFEDD5", "#A54827"];
-      
+
       case "anunturi":
       case "anunțuri":
       case "anunt":
@@ -40,26 +42,26 @@ const CardNews = ({ date, category, title, description, img, alt }) => {
       case "colaborare":
         return ["#F4FFD5", "#8DAC47"];
 
-      default: return ["#ffffff", "#000000"];
+      default:
+        return ["#ffffff", "#000000"];
     }
-  }
+  };
 
-  const [bgColor, textColor] = getColorsCategory(category);
+  const [bgColor, textColor] = getColorsCategory(newEl?.category);
 
   return (
-    <div className="cursor-pointer rounded-xl bg-white shadow-sm max-w-[470px]">
-      <div>
+    <div className="  rounded-xl bg-white shadow-sm max-w-[470px] h-full flex flex-col">
         <div className="relative">
-          <img className="rounded-t-xl max-h-[250px] w-full object-cover md:max-h-[300px]" src={img} alt={alt} />
-          <p className="text-sm bg-red-500 text-white absolute top-6 right-6 rounded-sm py-1 px-4 lg:text-lg">{date}</p>
+          <img className="rounded-t-xl max-h-[250px] min-h-[250px] w-full h-full object-cover md:min-h-[300px]" src={newEl?.images[0]} alt={newEl?.title} />
+          <p className="text-sm bg-red-500 text-white absolute top-6 right-6 rounded-sm py-1 px-4 lg:text-lg">{newEl?.finishDate && format(newEl?.finishDate.toDate(), "dd.MM.yyyy")}</p>
         </div>
-        <div className="p-6 text-blue-500">
-        <div style={{ backgroundColor: bgColor }} className=" rounded-full inline-block py-2 px-6">
-          <p style={{ color: textColor }} className="text-xs mdtext-sm">{category}</p>
+        <div className="flex flex-col p-6 text-blue-500 flex-1">
+        <div style={{ backgroundColor: bgColor }} className="w-fit rounded-full py-2 px-6">
+          <p style={{ color: textColor }} className="text-xs ms:text-sm">{newEl?.category}</p>
         </div>
-        <h3 className="font-bold text-base my-2 line-clamp-2 lg:text-2xl">{title}</h3>
-        <p className="text-sm line-clamp-2 lg:text-lg">{description}</p>
-        <button className="flex items-center justify-center gap-2 bg-none text-blue-400 text-sm lg:text-lg">
+        <h3 className="font-bold text-base my-2 line-clamp-2 lg:text-2xl">{newEl?.title}</h3>
+        <p className="text-sm line-clamp-2 lg:text-lg">{newEl?.description}</p>
+        <button onClick={onClick} className="flex items-center gap-2 bg-none text-blue-400 text-sm pt-4 mt-auto lg:text-lg">
           Află mai multe
           <svg
             width="17"
@@ -75,7 +77,6 @@ const CardNews = ({ date, category, title, description, img, alt }) => {
           </svg>
         </button>
         </div>
-      </div>
     </div>
   );
 };
