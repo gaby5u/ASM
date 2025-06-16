@@ -2,7 +2,6 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useNavigate } from "react-router";
 import ProjectsFormFields from "../../../components/forms/ProjectsFormFields";
-import { format } from "date-fns";
 
 const ProjectsForm = () => {
   const navigate = useNavigate();
@@ -15,14 +14,14 @@ const ProjectsForm = () => {
     objection: [{ value: "" }],
     mainActivities: [{ value: "" }],
     details: "",
-    images: [],
+    image: "",
   };
 
   const onSubmitNew = async (data) => {
     try {
       const formattedData = {
         ...data,
-        date: format(new Date(data.date), "MM/dd/yyyy"),
+        date: new Date(data.date),
       };
 
       await addDoc(newsCollectionRef, formattedData);

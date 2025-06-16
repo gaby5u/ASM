@@ -17,7 +17,6 @@ const AcquisitionDetails = () => {
       if (docSnap.exists()) {
         setAcquisition(docSnap.data());
       }
-      console.log(acquisition);
     };
     fetchData();
   }, [id]);
@@ -28,7 +27,7 @@ const AcquisitionDetails = () => {
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
         <Title
-          title="Apel de oferte pentru servicii de cazare, alimentare și logistică pentru conferință"
+          title={acquisition.title}
           subtitle="Oportunitate de parteneriat"
         />
         <img
@@ -121,7 +120,7 @@ const AcquisitionDetails = () => {
         {acquisition.finishDate &&
           format(acquisition.finishDate.toDate(), "dd.MM.yyyy")}
         </span>
-        , la adresa de email: asmoldova.info@gmail.com
+        ,la adresa de email: asmoldova.info@gmail.com
       </h2>
       <p className="text-sm lg:text-lg">Subiect email: „{acquisition.emailSubject}"</p>
       </div>

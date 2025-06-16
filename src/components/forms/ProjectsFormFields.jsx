@@ -24,8 +24,6 @@ const ProjectsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
     defaultValues,
   });
 
-  const images = watch("images") || [];
-
   const {
     fields: objectionFields,
     append: appendObjection,
@@ -99,18 +97,13 @@ const ProjectsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         error={errors.details?.message}
       />
       {errors.details && <ErrorText errorMessage={errors.details?.message} />}
-      {[...Array(3)].map((_, i) => (
         <ImageUploader
-          key={i}
-          initialImageUrl={images[i] || null}
+          initialImageUrl={watch("image") || null}
           onUpload={(url) => {
-            const updatedImages = [...images];
-            updatedImages[i] = url;
-            setValue("images", updatedImages);
+            setValue("image", url);
           }}
         />
-      ))}
-      {errors.images && <ErrorText errorMessage={errors.images?.message}></ErrorText>}
+      {errors.image && <ErrorText errorMessage={errors.image?.message} />}
       <div className="text-center mt-6">
         <BlueButton
           type="submit"

@@ -34,7 +34,6 @@ const EditProject = () => {
             mainActivities: (data.mainActivities || []).map((val) => ({
               value: val.value || val,
             })),
-            images: data.images || [],
           });
         }
       } catch (err) {

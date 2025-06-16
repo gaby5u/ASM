@@ -1,28 +1,44 @@
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../config/firebase";
 import ProjectCard from "./cards/ProjectCard";
+import { useNavigate } from "react-router";
 
 const itemsPerPage = 12;
 
-const initialCards = Array.from({ length: 235 }, (_, i) => ({
-  id: i + 1,
-  title: `Act 4 vote ${i + 1}`,
-}));
-
 const Paginate = () => {
-  const [cards, setCards] = useState(initialCards);
+  const [cards, setCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      setLoading(true);
+      try {
+        const projectsCol = collection(db, "projects");
+        const projectsSnapshot = await getDocs(projectsCol);
+        const projectsData = projectsSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setCards(projectsData);
+      } catch (err) {
+        console.error(err);
+      }
+      setLoading(false);
+    };
+
+    fetchProjects();
+  }, []);
 
   const totalPages = Math.ceil(cards.length / itemsPerPage);
 
-  const handleAddCard = () => {
-    const newCard = {
-      id: Date.now(),
-      title: `Act 4 vote ${cards.length + 1}`,
-    };
-
-    setCards([newCard, ...cards]);
-    setCurrentPage(0);
-  };
+  useEffect(() => {
+    if (currentPage >= totalPages) {
+      setCurrentPage(0);
+    }
+  }, [cards, totalPages, currentPage]);
 
   const startIndex = currentPage * itemsPerPage;
   const selectedCards = cards.slice(startIndex, startIndex + itemsPerPage);
@@ -74,6 +90,8 @@ const Paginate = () => {
     return () => clearTimeout(timeout);
   }, [currentPage]);
 
+  if (loading) return <p>Loading news...</p>;
+
   return (
     <div className="mx-auto">
       <div className="relative py-2 w-full overflow-x-hidden overflow-y-visible">
@@ -83,7 +101,7 @@ const Paginate = () => {
               transition-all duration-500 ease-in-out ${pageTransition}`}
         >
           {selectedCards.map((card) => (
-            <ProjectCard key={card.id} title={card.title} />
+            <ProjectCard key={card.id} title={card.title} icon={card.image} onClick={() => navigate(`/proiecte/${card.id}`)}/>
           ))}
         </div>
       </div>

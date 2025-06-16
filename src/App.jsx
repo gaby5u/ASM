@@ -10,6 +10,7 @@ import About from "./pages/About.jsx";
 import News from "./pages/News.jsx";
 import Acquisitions from "./pages/Acquisitions.jsx";
 import AcquisitionDetails from "./pages/AcquisitionDetails.jsx";
+import ProjectDetails from "./pages/ProjectDetails.jsx";
 import Transparency from "./pages/Transparency.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -47,6 +48,7 @@ function App() {
             <Route path="/noutati" element={<News />} />
             <Route path="/achizitii" element={<Acquisitions />} />
             <Route path="/achizitii/:id" element={<AcquisitionDetails />} />
+            <Route path="/proiecte/:id" element={<ProjectDetails />} />
             <Route path="/transparenta" element={<Transparency />} />
             <Route path="/contact" element={<Contact />} />
             <Route

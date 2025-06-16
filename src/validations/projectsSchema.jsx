@@ -21,8 +21,8 @@ export const projectsSchema = yup.object().shape({
     )
     .min(1, "Cel puțin o activitate este necesară"),
   details: yup.string().required("Detaliile sunt obligatorii"),
-  images: yup
-    .array()
-    .of(yup.string().url("Imaginea trebuie să fie un URL valid")).required("Imaginile sunt obligatorii")
-    // .min(4, "Toate imaginile sunt obligatorii")
+  image: yup
+    .string()
+    .url("Imaginea trebuie să fie un URL valid")
+    // .required("Imaginea este obligatorie"),
 });
