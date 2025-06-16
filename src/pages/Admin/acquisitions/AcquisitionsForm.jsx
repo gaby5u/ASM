@@ -12,7 +12,7 @@ const AcquisitionsForm = () => {
     title: "",
     description: "",
     startDate: "",
-    finalDate: "",
+    finishDate: "",
     location: "",
     services: [{ value: "" }],
     selectionCriteria: [{ value: "" }],
@@ -25,8 +25,8 @@ emailSubject: "",
     try {
       const formattedData = {
         ...data,
-        startDate: format(new Date(data.startDate), "MM/dd/yyyy"),
-        finishDate: format(new Date(data.finishDate), "MM/dd/yyyy"),
+        startDate: new Date(data.startDate),
+        finishDate: new Date(data.finishDate),
       };
 
       await addDoc(acquisitionsCollectionRef, formattedData);

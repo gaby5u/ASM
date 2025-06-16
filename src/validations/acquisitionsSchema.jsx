@@ -37,5 +37,5 @@ offerElements: yup
     )
     .min(1, "Cel puțin un element al ofertei este necesar"),
   emailSubject: yup.string().required("Subiectul email-ului este obligatoriu"),
-  details: yup.string().required("Detaliile sunt obligatorii"),
+  details: yup.string()
 });

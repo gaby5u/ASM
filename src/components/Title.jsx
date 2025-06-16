@@ -19,7 +19,7 @@ const Title = ({subtitle, title, highlited, className="", customClassName=""}) =
 
   return (
     <>
-      <div className={`text-blue-500 font-semibold ${customClassName=="" ? "my-8 md:my-16" : customClassName} ${className}`}>
+      <div className={`text-blue-500 font-semibold ${customClassName=="" ? "my-4 sm:my-8 md:my-16" : customClassName} ${className}`}>
         {
           subtitle && (
         <div className="flex items-center gap-2">

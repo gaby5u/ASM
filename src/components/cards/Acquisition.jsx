@@ -1,4 +1,4 @@
-const Acquisition = ({ title, date }) => {
+const Acquisition = ({ title, date, onClick }) => {
   return (
     <div className="bg-white shadow-sm rounded-xl w-full max-w-[480px] py-4 px-6 xl:py-6 xl:px-8">
       <div className="flex items-center justify-between">
@@ -24,6 +24,7 @@ const Acquisition = ({ title, date }) => {
         <button
           className="bg-blue-500 rounded-full rotate-[-45deg] transition-all duration-300 p-2
             hover:rotate-0 active:scale-95 active:bg-red-500 lg:p-3"
+            onClick={onClick}
         >
           <svg
             className="w-[21px] h-[21px] lg:w-[26px] lg:h-[26px]"
