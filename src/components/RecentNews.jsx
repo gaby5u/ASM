@@ -3,6 +3,7 @@ import { getDocs, collection, query, orderBy, limit } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import CardNews from "../components/cards/CardNews";
+import Loading from "../components/Loading";
 
 const RecentNews = () => {
   const [newsList, setNewsList] = useState([]);
@@ -40,7 +41,7 @@ const RecentNews = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading/>}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
         {
           newsList.map((newsItem) => (

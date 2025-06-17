@@ -5,6 +5,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router";
+import Loading from "../components/Loading";
 
 const Acquisitions = () => {
 
@@ -43,7 +44,7 @@ const Acquisitions = () => {
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading/>}
       <HeadingText
         title="Achiziții"
         description="Cele mai recente anunțuri legate de colaborări, sponsorizări și achiziții pentru inițiativele noastre viitoare"

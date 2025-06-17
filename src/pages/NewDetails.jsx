@@ -6,6 +6,7 @@ import Title from "../components/Title";
 import UnorderedList from "../components/UnorderedList";
 import BlueButton from "../components/buttons/BlueButton";
 import NewsGallery from "../components/NewsGallery";
+import Loading from "../components/Loading";
 
 const NewDetails = () => {
   const { id } = useParams();
@@ -88,7 +89,7 @@ const NewDetails = () => {
 
   const [bgColor, textColor] = getColorsCategory(newItem?.category);
 
-  if (!newItem) return <p>Loading...</p>;
+  if (!newItem) return <Loading/>;
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">

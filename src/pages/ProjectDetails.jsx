@@ -13,6 +13,7 @@ import { format } from "date-fns";
 import Title from "../components/Title";
 import UnorderedList from "../components/UnorderedList";
 import NewFromProject from "../components/cards/NewFromProject";
+import Loading from "../components/Loading";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -62,11 +63,10 @@ const ProjectDetails = () => {
     getNews();
   }, [projects]);
 
-  if (!projects) return <p>Loading...</p>;
+  if (!projects) return <Loading/>;
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <p>Loading...</p>}
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
         <Title title={projects.title} subtitle="inițiativele noastre" />
         <img

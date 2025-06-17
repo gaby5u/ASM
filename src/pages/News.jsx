@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import CardNews from "../components/cards/CardNews";
 import { useNavigate } from "react-router";
+import Loading from "../components/Loading";
 
 const News = () => {
   const [newsList, setNewsList] = useState([]);
@@ -61,7 +62,7 @@ const News = () => {
   }, [activeCategory]);
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading/>}
       <HeadingText
         title="Noutăți"
         description="Cele mai recente inițiative, evenimente și acțiuni ale ASM, direct din teren"

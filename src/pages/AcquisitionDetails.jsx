@@ -5,6 +5,7 @@ import { db } from "../config/firebase";
 import { format } from "date-fns";
 import Title from "../components/Title";
 import UnorderedList from "../components/UnorderedList";
+import Loading from "../components/Loading";
 
 const AcquisitionDetails = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ const AcquisitionDetails = () => {
     fetchData();
   }, [id]);
 
-  if  (!acquisition) return <p>Loading...</p>;
+  if  (!acquisition) return <Loading/>;
 
   
   return (

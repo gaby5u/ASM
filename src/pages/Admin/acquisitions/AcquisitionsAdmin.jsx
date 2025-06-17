@@ -6,6 +6,7 @@ import { db } from "../../../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Loading from "../../../components/Loading";
 
 const AcquisitionsAdmin = () => {
   const [acquisitionsList, setAcquisitionsList] = useState([]);
@@ -33,7 +34,7 @@ const AcquisitionsAdmin = () => {
   }, []);
   return (
     <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading/>}
       <HeadingText title="Anunțuri" className="text-start" />
       <AddButton
         title="un anunț nou"

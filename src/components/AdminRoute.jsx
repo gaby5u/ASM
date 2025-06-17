@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Navigate } from "react-router";
 import { auth } from "../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import Loading from "../components/Loading";
 
 const AdminRoute = ({children}) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +22,7 @@ const AdminRoute = ({children}) => {
     return () => unsubscribe();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <Loading/>
 
   return isAdmin ? children : <Navigate to="*"/>
 }
