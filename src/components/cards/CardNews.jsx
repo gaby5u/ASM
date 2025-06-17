@@ -51,21 +51,38 @@ const CardNews = ({ newEl, onClick }) => {
 
   return (
     <div className="  rounded-xl bg-white shadow-sm max-w-[470px] h-full flex flex-col">
-        <div className="relative">
-          <img className="rounded-t-xl max-h-[250px] min-h-[250px] w-full h-full object-cover md:min-h-[300px]" src={newEl?.images[0]} alt={newEl?.title} />
-          <p className="text-sm bg-red-500 text-white absolute top-6 right-6 rounded-sm py-1 px-4 lg:text-lg">{newEl?.startDate && format(newEl?.startDate.toDate(), "dd.MM.yyyy")}</p>
+      <div className="relative">
+        <img
+          className="rounded-t-xl max-h-[250px] min-h-[250px] w-full h-full object-cover md:min-h-[300px]"
+          src={newEl?.images[0]}
+          alt={newEl?.title}
+        />
+        <p className="text-sm bg-red-500 text-white absolute top-6 right-6 rounded-sm py-1 px-4 lg:text-lg">
+          {newEl?.startDate && format(newEl?.startDate.toDate(), "dd.MM.yyyy")}
+        </p>
+      </div>
+      <div className="flex flex-col p-6 text-blue-500 flex-1">
+        <div
+          style={{ backgroundColor: bgColor }}
+          className="w-fit rounded-full py-2 px-6"
+        >
+          <p style={{ color: textColor }} className="text-xs ms:text-sm">
+            {newEl?.category}
+          </p>
         </div>
-        <div className="flex flex-col p-6 text-blue-500 flex-1">
-        <div style={{ backgroundColor: bgColor }} className="w-fit rounded-full py-2 px-6">
-          <p style={{ color: textColor }} className="text-xs ms:text-sm">{newEl?.category}</p>
-        </div>
-        <h3 className="font-bold text-base my-2 line-clamp-2 lg:text-2xl">{newEl?.title}</h3>
+        <h3 className="font-bold text-base my-2 line-clamp-2 lg:text-2xl">
+          {newEl?.title}
+        </h3>
         <p className="text-sm line-clamp-2 lg:text-lg">{newEl?.description}</p>
-        <button onClick={onClick} className="flex items-center gap-2 bg-none text-blue-400 text-sm pt-4 mt-auto lg:text-lg">
-          Află mai multe
+        <button
+          onClick={onClick}
+          className="group flex items-center gap-2 bg-none text-blue-400 text-sm pt-4 mt-auto lg:text-lg transition-all duration-300 hover:text-blue-500 relative"
+        >
+          <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-500 after:transition-all after:duration-300 group-hover:after:w-full">Află mai multe</span>
           <svg
             width="17"
             height="17"
+            className="transition-transform duration-300 transform group-hover:translate-x-1"
             viewBox="0 0 17 17"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +93,7 @@ const CardNews = ({ newEl, onClick }) => {
             />
           </svg>
         </button>
-        </div>
+      </div>
     </div>
   );
 };
