@@ -168,56 +168,56 @@ const Homepage = () => {
           <SwiperSlide>
             <PartenerSlide
               partener="ansor"
-              image="/images/ansor-logo.png"
+              image="/images/parteners/ansor-logo.png"
               alt="ansor"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="alda"
-              image="/images/alda-logo.png"
+              image="/images/parteners/alda-logo.png"
               alt="alda"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="mec"
-              image="/images/mec-logo.png"
+              image="/images/parteners/mec-logo.png"
               alt="mec"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="ant"
-              image="/images/ant-logo.png"
+              image="/images/parteners/ant-logo.png"
               alt="ant"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="cntm"
-              image="/images/cntm-logo.png"
+              image="/images/parteners/cntm-logo.png"
               alt="cntm"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="erim"
-              image="/images/erim-logo.png"
+              image="/images/parteners/erim-logo.png"
               alt="erim"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="diez"
-              image="/images/diez-logo.png"
+              image="/images/parteners/diez-logo.png"
               alt="diez"
             />
           </SwiperSlide>
           <SwiperSlide>
             <PartenerSlide
               partener="esu"
-              image="/images/esu-logo.png"
+              image="/images/parteners/esu-logo.png"
               alt="esu"
             />
           </SwiperSlide>

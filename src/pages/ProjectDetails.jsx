@@ -63,7 +63,7 @@ const ProjectDetails = () => {
     getNews();
   }, [projects]);
 
-  if (!projects) return <Loading/>;
+  if (!projects) return <Loading />;
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
@@ -111,9 +111,10 @@ const ProjectDetails = () => {
           <h2 className="font-rubik my-4 font-bold text-xl lg:text-[32px]">
             Activitățile din cadrul proiectului
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 mt-4 lg:mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-4 lg:mt-10">
             {newsList?.map((newItem) => (
               <NewFromProject
+                key={newItem.id}
                 newItem={newItem}
                 onClick={() => navigate(`/noutati/${newItem.id}`)}
               />
