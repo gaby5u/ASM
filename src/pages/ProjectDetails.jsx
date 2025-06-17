@@ -1,14 +1,26 @@
-import { useParams } from "react-router";
-import { doc, getDoc } from "firebase/firestore";
+import { useParams, useNavigate } from "react-router";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../config/firebase";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import Title from "../components/Title";
 import UnorderedList from "../components/UnorderedList";
+import NewFromProject from "../components/cards/NewFromProject";
 
 const ProjectDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [projects, setProjects] = useState(null);
+  const [newsList, setNewsList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,12 +36,39 @@ const ProjectDetails = () => {
     fetchData();
   }, [id]);
 
+  useEffect(() => {
+    const getNews = async () => {
+      if (!projects?.title) return;
+
+      try {
+        const newsCollection = collection(db, "news");
+        const associatedNews = query(
+          newsCollection,
+          where("associatedProject", "==", projects?.title)
+        );
+        const querySnapshot = await getDocs(associatedNews);
+
+        const filteredData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setNewsList(filteredData);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getNews();
+  }, [projects]);
+
   if (!projects) return <p>Loading...</p>;
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+      {isLoading && <p>Loading...</p>}
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
-        <Title title={projects.title} subtitle="INIȚIATIVELE NOASTRE" />
+        <Title title={projects.title} subtitle="inițiativele noastre" />
         <img
           src="/images/project.svg"
           alt="megaphone"
@@ -67,9 +106,21 @@ const ProjectDetails = () => {
           />
         </div>
       </div>
-      <h2 className="font-rubik my-4 font-bold text-xl lg:text-[32px]">
-        Activitățile din cadrul proiectului
-      </h2>
+      {newsList.length > 0 && (
+        <>
+          <h2 className="font-rubik my-4 font-bold text-xl lg:text-[32px]">
+            Activitățile din cadrul proiectului
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 mt-4 lg:mt-10">
+            {newsList?.map((newItem) => (
+              <NewFromProject
+                newItem={newItem}
+                onClick={() => navigate(`/noutati/${newItem.id}`)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </section>
   );
 };
