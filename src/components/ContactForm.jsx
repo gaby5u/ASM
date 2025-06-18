@@ -5,8 +5,10 @@ import emailjs from "emailjs-com";
 
 import InputText from "./inputs/InputText";
 import Textarea from "./inputs/Textarea";
+import CustomNotification from "./alerts/CustomNotification";
 import ErrorText from "./alerts/ErrorText";
 import BlueButton from "./buttons/BlueButton";
+import { useState } from "react";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("Prenumele este obligatoriu!"),
@@ -14,6 +16,15 @@ const schema = yup.object().shape({
   email: yup
     .string()
     .email("Email invalid")
+    .test(
+      "is-valid-domain",
+      "Emailul trebuie să conțină un domeniu valid (ex. gmail.com)",
+      (value) => {
+        if (!value) return false;
+        const domain = value.split("@")[1];
+        return domain && domain.includes(".");
+      }
+    )
     .required("Emailul este obligatoriu!"),
   message: yup
     .string()
@@ -26,10 +37,11 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const [notification, setNotification] = useState(null);
 
   const onSubmit = async (data) => {
     try {
@@ -44,11 +56,14 @@ const ContactForm = () => {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      alert("Mesaj trimis cu succes!");
+      setNotification({ message: "Mesaj trimis cu succes!", type: "success" });
       reset();
     } catch (err) {
       console.log("EmailJS Error:", err);
-      alert("Eroare la trimiterea mesajului");
+      setNotification({
+        message: "Eroare la trimiterea mesajului",
+        type: "error",
+      });
     }
   };
 
@@ -107,7 +122,13 @@ const ContactForm = () => {
         </p>
       </div>
 
-      {isSubmitSuccessful && <p>Mesajul tău a fost trimis!</p>}
+      {notification && (
+        <CustomNotification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
     </form>
   );
 };

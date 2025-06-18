@@ -151,28 +151,59 @@ const Footer = () => {
           <div className="xl:w-[120px]">
             <h3 className="font-bold text-base mb-1 lg:text-2xl">Despre</h3>
             <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Despre ASM</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre#echipa">Echipa</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre#proiecte">Proiecte</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/#galerie">Galerie</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/contact">Contact</NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/despre"
+              >
+                Despre ASM
+              </NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/despre#echipa"
+              >
+                Echipa
+              </NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/despre#proiecte"
+              >
+                Proiecte
+              </NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/#galerie"
+              >
+                Galerie
+              </NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/contact"
+              >
+                Contact
+              </NavLink>
             </div>
           </div>
           <div>
             <h3 className="font-bold text-base mb-1 lg:text-2xl ">Media</h3>
             <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/noutati">Noutăți</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/achizitii">Achiziții</NavLink>
-            </div>
-          </div>
-          <div>
-            <h3 className="font-bold text-base mb-1 lg:text-2xl ">
-              Transparență
-            </h3>
-            <div className="flex flex-col gap-1 md:gap-3">
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Documente legale</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Documente financiare</NavLink>
-              <NavLink className="transition-all duration-200 hover:text-blue-400 active:text-blue-400" to="/despre">Activitate</NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/noutati"
+              >
+                Noutăți
+              </NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/achizitii"
+              >
+                Achiziții
+              </NavLink>
+              <NavLink
+                className="transition-all duration-200 hover:text-blue-400 active:text-blue-400"
+                to="/transparenta"
+              >
+                Transparență
+              </NavLink>
             </div>
           </div>
           <div className="flex flex-col items-start gap-2 md:gap-4">
@@ -191,7 +222,10 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <a href="mailto:asmoldova.info@gmail.com" className="social-media-link">
+              <a
+                href="mailto:asmoldova.info@gmail.com"
+                className="social-media-link"
+              >
                 asmoldova.info@gmail.com
               </a>
             </div>
@@ -212,7 +246,9 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <a href="tel:+37376020693" className="social-media-link">+373 76 020 693</a>
+              <a href="tel:+37376020693" className="social-media-link">
+                +373 76 020 693
+              </a>
             </div>
             <div className="social-media flex items-center gap-2 md:gap-6">
               <div className="social-media-icon flex items-center justify-center bg-blue-500 rounded-full w-8 h-8 lg:w-10 lg:h-10">
@@ -289,7 +325,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-blue-500 py-4 text-center text-sm lg:text-lg">Copyright 	&#169; 2025 All Rights Reserved.</p>
+      <p className="text-blue-500 py-4 text-center text-sm lg:text-lg">
+        Copyright &#169; 2025 All Rights Reserved.
+      </p>
     </footer>
   );
 };

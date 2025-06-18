@@ -219,6 +219,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               Acasă
             </NavLink>
@@ -229,6 +230,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               Despre noi
             </NavLink>
@@ -239,6 +241,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               Noutăți
             </NavLink>
@@ -249,6 +252,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               Achiziții
             </NavLink>
@@ -259,6 +263,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               Transparență
             </NavLink>
@@ -269,6 +274,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "activeHeaderLink" : "headerLink"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </NavLink>
@@ -280,6 +286,7 @@ const Header = () => {
             <>
               <img
                 src={user?.photoURL}
+                referrerPolicy="no-referrer"
                 alt="Profile"
                 className=" w-8 h-8 rounded-full flex items-center justify-center lg:w-12 lg:h-12"
               />

@@ -53,7 +53,7 @@ const Homepage = () => {
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeuAVWyYF3NDL4zLAScNairXyxjTLAGy_m4MsMrJfvMRbcv4A/viewform"
                 target="_blank"
-                className="group flex items-center w-full max-w-[310px] justify-between gap-10 bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white rounded-full text-sm px-4 py-2 lg:text-xl lg:px-8 lg:py-5 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95 active:shadow-none"
+                className="group flex items-center w-full max-w-[220px] justify-between gap-10 bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white rounded-full text-sm px-4 py-2 lg:text-xl lg:px-8 lg:py-5 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95 active:shadow-none lg:max-w-[310px]"
               >
                 Completează acum
                 <svg

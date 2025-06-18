@@ -45,7 +45,7 @@ const RecentNews = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
         {
           newsList.map((newsItem) => (
-            <CardNews newEl={newsItem} onClick={() => navigate(`/noutati/${newsItem.id}`)}/>
+            <CardNews key={newsItem.id} newEl={newsItem} onClick={() => navigate(`/noutati/${newsItem.id}`)}/>
           ))
         }
       </div>

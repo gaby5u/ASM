@@ -21,8 +21,8 @@ const Gallery = () => {
     "img11.jpg",
     "img12.jpg",
     "img13.jpg",
-    "img11.jpg",
-    "img11.jpg",
+    "img14.jpg",
+    "img15.jpg",
   ];
 
   const prevRef = useRef(null);

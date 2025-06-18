@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../config/firebase";
 import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { googleProvider } from "../config/firebase";
+import { useNavigate } from "react-router";
 
 const AuthContext = createContext();
 
@@ -9,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
     try {
@@ -18,9 +20,7 @@ export const AuthProvider = ({ children }) => {
 
       setUser(user);
       setIsAdmin(!!idTokenResult.claims.admin);
-
-      console.log("You are connected as ");
-      console.log(user.email);
+      navigate("/admin");
     } catch (err) {
       console.error(err);
     }

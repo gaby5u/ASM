@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import AcquisitionsFormFields from "../../../components/forms/AcquisitionsFormFields";
 import { db } from "../../../config/firebase";
 import { format } from "date-fns";
+import Loading from "../../../components/Loading";
 
 const EditAcquisition = () => {
   const { id } = useParams();
@@ -60,7 +61,7 @@ const EditAcquisition = () => {
     }
   };
 
-  if (loading) return <p className="text-center">Se încarcă...</p>;
+  if (loading) return <Loading/>;
   if (!defaultValues)
     return <p className="text-center text-red-500">Eroare la încărcare.</p>;
 

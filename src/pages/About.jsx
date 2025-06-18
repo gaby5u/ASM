@@ -253,7 +253,7 @@ const About = () => {
             </h2>
             <div className="flex flex-wrap items-center gap-2 my-4 md:gap-5 md:my-6">
               <TeamMember
-                src="/images/teamMembers/Cristina-Talmazan.jpg"
+                src="/images/teamMembers/Adelina-Fărîmă.jpg"
                 name="Adelina Fărîmă"
                 funct="Administrator, Președinte"
                 gmail="adelinafarima.info@gmail.com"

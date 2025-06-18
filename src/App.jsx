@@ -1,7 +1,7 @@
 import "./App.css";
 import "./styles/stateStyles.css";
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import { useLocation, Outlet } from "react-router";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -40,7 +40,6 @@ function Layout() {
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Header />
         <Routes>
           <Route element={<Layout />}>
@@ -137,7 +136,6 @@ function App() {
           </Route>
         </Routes>
         <Footer />
-      </BrowserRouter>
     </>
   );
 }

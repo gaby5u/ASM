@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NewsFormFields from "../../../components/forms/NewsFormFields";
 import { db } from "../../../config/firebase";
 import { format } from "date-fns";
+import Loading from "../../../components/Loading";
 
 const EditNew = () => {
   const { id } = useParams();
@@ -58,7 +59,7 @@ const EditNew = () => {
     }
   };
 
-  if (loading) return <p className="text-center">Se încarcă...</p>;
+  if (loading) return <Loading/>;
   if (!defaultValues)
     return <p className="text-center text-red-500">Eroare la încărcare.</p>;
 
