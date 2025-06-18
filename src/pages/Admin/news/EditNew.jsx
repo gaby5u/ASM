@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import NewsFormFields from "../../../components/forms/NewsFormFields";
 import { db } from "../../../config/firebase";
@@ -59,7 +59,7 @@ const EditNew = () => {
     }
   };
 
-  if (loading) return <Loading/>;
+  if (loading) return <Loading />;
   if (!defaultValues)
     return <p className="text-center text-red-500">Eroare la încărcare.</p>;
 

@@ -8,6 +8,9 @@ import ErrorText from "../alerts/ErrorText.jsx";
 import { newsSchema } from "../../validations/newsSchems";
 import { useForm, useFieldArray } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase.jsx";
 
 const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
   const {
@@ -15,7 +18,6 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
     register,
     handleSubmit,
     setValue,
-    // getValues,
     watch,
     formState: { errors },
   } = useForm({
@@ -24,6 +26,7 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
   });
 
   const images = watch("images") || [];
+  const [projects, setProjects] = useState([]);
 
   const {
     fields: objectionFields,
@@ -37,12 +40,22 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
     remove: removeActivity,
   } = useFieldArray({ control, name: "mainActivities" });
 
-  // const handleImageUpload = (url) => {
-  //   const current = getValues("images");
-  //   if (current.length < 4) {
-  //     setValue("images", [...current, url]);
-  //   }
-  // };
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const snapshot = await getDocs(collection(db, "projects"));
+        const projectList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          name: doc.data().title,
+        }));
+        setProjects(projectList);
+      } catch (error) {
+        console.error("Eroare la încărcarea proiectelor:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <form
@@ -58,10 +71,10 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         error={errors.title?.message}
       />
       {errors.title && <ErrorText errorMessage={errors.title?.message} />}
-      <div className="flex items-center gap-2 my-2">
+      {/* <div className="flex items-center gap-2 my-2">
         <input type="checkbox" id="finalizat" {...register("isCompleted")} />
         <label htmlFor="finalizat">Finalizat</label>
-      </div>
+      </div> */}
       <DateInput
         title="Data de început"
         {...register("startDate")}
@@ -78,17 +91,36 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
       {errors.finishDate && (
         <ErrorText errorMessage={errors.finishDate?.message} />
       )}
-      <InputText
-        placeholder="Categorie*"
+      <select
         {...register("category")}
-        error={errors.category?.message}
-      />
+        defaultValue="Evenimente"
+        className="bg-blue-100 text-blue-400 placeholder-blue-400 border-1 w-full border-blue-400 rounded-xl text-sm py-2 px-3 my-1 transition-all duration-200 focus:ring-1 focus:ring-blue-400 focus:outline-none sm:my-3 sm:py-4 sm:px-6 lg:text-lg"
+      >
+        <option value="" disabled>
+          Selectează categoria
+        </option>
+        <option value="Evenimente">Evenimente</option>
+        <option value="Cercetări">Cercetări</option>
+        <option value="Admitere">Admitere</option>
+        <option value="Advocacy">Advocacy</option>
+        <option value="Întâlniri">Întâlniri</option>
+        <option value="Colaborări">Colaborări</option>
+      </select>
       {errors.category && <ErrorText errorMessage={errors.category?.message} />}
-      <InputText
-        placeholder="Proiect asociat*"
+      <select
         {...register("associatedProject")}
-        error={errors.associatedProject?.message}
-      />
+        className="bg-blue-100 text-blue-400 placeholder-blue-400 border-1 w-full border-blue-400 rounded-xl text-sm py-2 px-3 my-1 transition-all duration-200 focus:ring-1 focus:ring-blue-400 focus:outline-none sm:my-3 sm:py-4 sm:px-6 lg:text-lg"
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Selectează proiectul asociat
+        </option>
+        {projects.map((project) => (
+          <option key={project.id} value={project.title}>
+            {project.name}
+          </option>
+        ))}
+      </select>
       {errors.associatedProject && (
         <ErrorText errorMessage={errors.associatedProject?.message} />
       )}
@@ -141,7 +173,9 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
           }}
         />
       ))}
-      {errors.images && <ErrorText errorMessage={errors.images?.message}></ErrorText>}
+      {errors.images && (
+        <ErrorText errorMessage={errors.images?.message}></ErrorText>
+      )}
       <div className="text-center mt-6">
         <BlueButton
           type="submit"

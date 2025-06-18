@@ -145,9 +145,9 @@ const NewDetails = () => {
           />
         </div>
       </div>
-      <div className="text-center mt-4 lg:mt-8">
+      {/* <div className="text-center mt-4 lg:mt-8">
         <BlueButton text="Participă acum!" />
-      </div>
+      </div> */}
       <Title
         title="Povestea în fotografii"
         subtitle="galerie"
