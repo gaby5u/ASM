@@ -11,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase.jsx";
+import ErrorModal from "../alerts/ErrorModal.jsx";
 
 const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
   const {
@@ -51,6 +52,7 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         setProjects(projectList);
       } catch (error) {
         console.error("Eroare la încărcarea proiectelor:", error);
+        return <ErrorModal />
       }
     };
 
@@ -66,7 +68,7 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         {isEdit ? "Editează noutatea" : "Adăugare noutate"}
       </p>
       <InputText
-        placeholder="Titlu*"
+        placeholder="Titlu"
         {...register("title")}
         error={errors.title?.message}
       />
@@ -125,7 +127,7 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         <ErrorText errorMessage={errors.associatedProject?.message} />
       )}
       <Textarea
-        placeholder="Descriere*"
+        placeholder="Descriere"
         {...register("description")}
         error={errors.description?.message}
       />
@@ -157,7 +159,7 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         <ErrorText errorMessage={errors.mainActivities?.message} />
       )}
       <Textarea
-        placeholder="Detalii*"
+        placeholder="Detalii"
         {...register("details")}
         error={errors.details?.message}
       />

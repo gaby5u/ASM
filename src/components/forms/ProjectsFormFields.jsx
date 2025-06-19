@@ -45,7 +45,7 @@ const ProjectsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         {isEdit ? "Editează proiect" : "Adăugare proiect"}
       </p>
       <InputText
-        placeholder="Titlu*"
+        placeholder="Titlu"
         {...register("title")}
         error={errors.title?.message}
       />
@@ -60,7 +60,7 @@ const ProjectsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         <ErrorText errorMessage={errors.date?.message} />
       )}
       <Textarea
-        placeholder="Descriere*"
+        placeholder="Descriere"
         {...register("description")}
         error={errors.description?.message}
       />
@@ -92,7 +92,7 @@ const ProjectsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         <ErrorText errorMessage={errors.mainActivities?.message} />
       )}
       <Textarea
-        placeholder="Detalii*"
+        placeholder="Detalii"
         {...register("details")}
         error={errors.details?.message}
       />

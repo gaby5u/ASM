@@ -5,6 +5,7 @@ import { db } from "../../../config/firebase";
 import { format } from "date-fns";
 import ProjectsFormFields from "../../../components/forms/ProjectsFormFields";
 import Loading from "../../../components/Loading";
+import ErrorModal from "../../../components/alerts/ErrorModal";
 
 const EditProject = () => {
   const { id } = useParams();
@@ -59,7 +60,7 @@ const EditProject = () => {
 
   if (loading) return <Loading/>;
   if (!defaultValues)
-    return <p className="text-center text-red-500">Eroare la încărcare.</p>;
+    return <ErrorModal/>;
 
   return (
     <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">

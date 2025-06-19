@@ -10,7 +10,7 @@ const Contact = () => {
         style={{ backgroundImage: `url(${bgImage})` }}
         className="absolute top-0 left-0 w-full h-full bg-no-repeat"
       ></div>
-      <div className="relative flex flex-wrap items-stretch justify-between py-8 gap-4 lg:gap-12 xl:py-16 xl:flex-nowrap">
+      <div className="relative flex flex-wrap items-stretch justify-between max-w-[1880px] mx-auto py-8 gap-4 lg:gap-12 xl:py-16 xl:flex-nowrap">
         <div className="text-blue-500 w-full">
           <Title
             title="Contactează-ne acum!"

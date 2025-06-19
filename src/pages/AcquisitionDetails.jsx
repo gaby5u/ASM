@@ -31,6 +31,7 @@ const AcquisitionDetails = () => {
   
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+      <div className="max-w-[1880px] mx-auto">
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
         <Title
           title={acquisition?.title}
@@ -129,6 +130,7 @@ const AcquisitionDetails = () => {
         ,la adresa de email: asmoldova.info@gmail.com
       </h2>
       <p className="text-sm lg:text-lg">Subiect email: „{acquisition.emailSubject}"</p>
+      </div>
       </div>
     </section>
   );

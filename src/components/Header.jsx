@@ -187,7 +187,6 @@ const Header = () => {
             />
           </svg>
         </Link>
-
         <ul
           ref={menuRef}
           className={`${
@@ -280,7 +279,6 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
-
         <div className="flex items-center gap-2">
           {user ? (
             <>

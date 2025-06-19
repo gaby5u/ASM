@@ -45,6 +45,7 @@ const Acquisitions = () => {
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
       {isLoading && <Loading/>}
+      <div className="max-w-[1880px] mx-auto">
       <HeadingText
         title="Achiziții"
         description="Cele mai recente anunțuri legate de colaborări, sponsorizări și achiziții pentru inițiativele noastre viitoare"
@@ -58,6 +59,7 @@ const Acquisitions = () => {
             onClick={() => navigate(`/achizitii/${acquisition.id}`)}
           />
         ))}
+      </div>
       </div>
     </section>
   );

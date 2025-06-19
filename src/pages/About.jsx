@@ -32,6 +32,7 @@ const About = () => {
         style={{ backgroundImage: `url(${BgImage})` }}
         className="text-blue-500 blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm py-4 px-2 pt-[60px] sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6 xl:pt-[96px]"
       >
+        <div className="max-w-[1880px] mx-auto">
         <div className="flex flex-wrap justify-center items-center gap-[5%] py-8 xl:py-16 xl:flex-nowrap xl:justify-between">
           <img
             src="/images/about-img.jpg"
@@ -148,9 +149,10 @@ const About = () => {
             title="Campanii de informare"
           />
         </div>
+        </div>
       </section>
 
-      <section className="flex flex-wrap h-full items-stretch justify-center items-start gap-4 text-blue-500 font-dm py-8 mt-8 px-2 sm:px-4 md:gap-8 lg:flex-nowrap lg:px-10 xl:px-20 2xl:px-50 xl:py-16 xl:mt-16 ">
+      <section className="flex flex-wrap h-full items-stretch justify-center items-start gap-4 max-w-[1880px] mx-auto text-blue-500 font-dm py-8 mt-8 px-2 sm:px-4 md:gap-8 lg:flex-nowrap lg:px-10 xl:px-20 2xl:px-50 xl:py-16 xl:mt-16 ">
         <div className="w-full flex flex-col justify-between lg:max-w-[800px]">
           <Title
             subtitle="Cunoaște-ne"
@@ -206,18 +208,21 @@ const About = () => {
         id="proiecte"
         className="blured-section bg-blue-100 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50"
       >
+        <div className="max-w-[1880px] mx-auto">
         <Title
           subtitle="fapte,  nu vorbe"
           title="Proiectele noastre"
           customClassName="py-8 md:py-16"
         />
         <Paginate />
+        </div>
       </section>
 
       <section
         id="echipa"
         className="text-blue-500 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6"
       >
+        <div className="max-w-[1880px] mx-auto">
         <div className="flex flex-wrap justify-between sm:flex-nowrap items-center bg-blue-100 rounded-xl px-4 py-6 my-8 md:my-16 md:px-18 md:py-10">
           <div className="w-full max-w-[820px]">
             <Title
@@ -291,6 +296,7 @@ const About = () => {
               />
             </div>
           </div>
+        </div>
         </div>
       </section>
     </>

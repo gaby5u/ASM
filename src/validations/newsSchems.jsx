@@ -13,8 +13,7 @@ export const newsSchema = yup.object().shape({
     ),
   category: yup.string().required("Categoria este obligatorie"),
   associatedProject: yup
-    .string()
-    .required("Proiectul asociat este obligatoriu"),
+    .string(),
   description: yup.string().required("Descrierea este obligatorie").max(518, "Descrierea nu poate depăși numarul de caractere"),
   objection: yup
     .array()
@@ -32,9 +31,9 @@ export const newsSchema = yup.object().shape({
       })
     )
     .min(1, "Cel puțin o activitate este necesară"),
-  details: yup.string().required("Detaliile sunt obligatorii"),
+  details: yup.string(),
   images: yup
     .array()
     .of(yup.string().url("Imaginea trebuie să fie un URL valid")).required("Imaginile sunt obligatorii")
-    // .min(4, "Toate imaginile sunt obligatorii")
+    .min(4, "Toate imaginile sunt obligatorii")
 });

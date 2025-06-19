@@ -5,6 +5,7 @@ const Transparency = () => {
   return (
     <>
       <section className="blured-section bg-blue-100 text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        <div className="max-w-[1880px] mx-auto">
         <HeadingText
           title="Transparență"
           description="Documente legale, administrative și politici interne care reflectă angajamentul nostru față de transparență și responsabilitate"
@@ -83,6 +84,7 @@ const Transparency = () => {
           viewUrl="https://drive.google.com/file/d/16fBJCtFoHUsSuDgY1gTe-WYqxrfxgv8y/view?usp=drive_link"
           downloadUrl="https://drive.google.com/uc?export=download&id=16fBJCtFoHUsSuDgY1gTe-WYqxrfxgv8y"
         />
+        </div>
       </section>
     </>
   );

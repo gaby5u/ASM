@@ -33,7 +33,7 @@ const Homepage = () => {
         style={{ backgroundImage: `url(${BgImage})` }}
         className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50"
       >
-        <div className="flex flex-wrap items-center justify-center gap-8 py-4 sm:py-16 md:flex-nowrap md:justify-between xl:py-25 xl:items-start">
+        <div className="flex flex-wrap items-center justify-center gap-8 py-4 max-w-[1880px] mx-auto sm:py-16 md:flex-nowrap md:justify-between xl:py-25 xl:items-start">
           <div className="text-blue-500">
             <div className="bg-white shadow-sm rounded-full inline-block px-8 py-2">
               <p className="text-gray-200 text-sm lg:text-base">
@@ -96,6 +96,7 @@ const Homepage = () => {
         style={{ backgroundImage: `url(${BgImageElements})` }}
         className="bg-white bg-no-repeat font-dm bg-cover w-full h-full my-16 md:my-24"
       >
+        <div className="max-w-[1880px] mx-auto">
         <div className="py-2 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
           <div className="flex flex-col items-center justify-between gap-4 md:gap-8 lg:gap-16 xl:flex-row">
             <Title
@@ -125,7 +126,6 @@ const Homepage = () => {
             className="mb-8"
           />
         </div>
-
         <Swiper
           className="w-full max-h-[300px]"
           spaceBetween={30}
@@ -222,9 +222,12 @@ const Homepage = () => {
             />
           </SwiperSlide>
         </Swiper>
+        </div>
+
       </section>
 
-      <section className="blured-section font-dm bg-blue-100 py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
+      <section className="blured-section font-dm bg-blue-100  py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
+        <div className="max-w-[1880px] mx-auto">
         <Title subtitle="noutăți" title="Cele mai proaspete evenimente" />
         <RecentNews />
         <div className="text-center">
@@ -234,11 +237,12 @@ const Homepage = () => {
             className="mt-8 md:mt-16"
           />
         </div>
+        </div>
       </section>
 
       <section
         id="galerie"
-        className="py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8"
+        className="py-4 px-2 max-w-[1880px] mx-auto sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8"
       >
         <Title subtitle="galerie" title="Retrăiește momentele" />
         <Gallery />

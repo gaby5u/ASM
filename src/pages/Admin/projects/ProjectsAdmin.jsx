@@ -34,7 +34,7 @@ const ProjectsAdmin = () => {
 
   return (
     <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <Loading/>}
+      <div className="max-w-[1880px] mx-auto">
       <HeadingText title="Proiecte" className="text-start" />
       <AddButton
         title="un proiect nou"
@@ -58,6 +58,8 @@ const ProjectsAdmin = () => {
           </div>
         ))}
       </div>
+      </div>
+      {isLoading && <Loading/>}
     </section>
   );
 };

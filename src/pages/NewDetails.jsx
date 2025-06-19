@@ -93,7 +93,8 @@ const NewDetails = () => {
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      <div className="flex flex-wrap items-center justify-between gap-[3%] md:flex-nowrap">
+      <div className="max-w-[1880px] mx-auto">
+      <div className="flex flex-wrap items-center justify-between gap-[3%]  md:flex-nowrap">
         <div className="w-full max-w-[840px]">
           <Title
             title={newItem?.title}
@@ -154,6 +155,7 @@ const NewDetails = () => {
         customClassName="my-4 sm:my-8 md:mt-16 xl:my-16"
       />
       <NewsGallery images={newItem?.images}/>
+      </div>
     </section>
   );
 };

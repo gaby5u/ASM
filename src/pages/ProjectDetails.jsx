@@ -67,6 +67,7 @@ const ProjectDetails = () => {
 
   return (
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+      <div className="max-w-[1880px] mx-auto">
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
         <Title title={projects.title} subtitle="inițiativele noastre" />
         <img
@@ -122,6 +123,7 @@ const ProjectDetails = () => {
           </div>
         </>
       )}
+      </div>
     </section>
   );
 };

@@ -50,13 +50,13 @@ const AcquisitionsFormFields = ({
         {isEdit ? "Editează anunț" : "Adăugare anunț"}
       </p>
       <InputText
-        placeholder="Titlu*"
+        placeholder="Titlu"
         {...register("title")}
         error={errors.title?.message}
       />
       {errors.title && <ErrorText errorMessage={errors.title?.message} />}
       <Textarea
-        placeholder="Descriere*"
+        placeholder="Descriere"
         {...register("description")}
         error={errors.description?.message}
       />
@@ -80,7 +80,7 @@ const AcquisitionsFormFields = ({
         <ErrorText errorMessage={errors.finishDate?.message} />
       )}
       <InputText
-        placeholder="Locație*"
+        placeholder="Locație"
         {...register("location")}
         error={errors.location?.message}
       />
@@ -120,13 +120,13 @@ const AcquisitionsFormFields = ({
         <ErrorText errorMessage={errors.offerElements?.message} />
       )}
       <InputText
-        placeholder="Subiectul email-ului*"
+        placeholder="Subiectul email-ului"
         {...register("emailSubject")}
         error={errors.emailSubject?.message}
       />
       {errors.emailSubject && <ErrorText errorMessage={errors.emailSubject?.message} />}
       <Textarea
-        placeholder="Detalii*"
+        placeholder="Detalii"
         {...register("details")}
         error={errors.details?.message}
       />
