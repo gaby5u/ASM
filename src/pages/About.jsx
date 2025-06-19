@@ -188,7 +188,7 @@ const About = () => {
             </div>
             <Link
               to="/contact"
-              className="contact-button border rounded-full py-2 px-5 text-blue-400 text-sm lg:text-base whitespace-nowrap hover:text-white"
+              className="contact-button border rounded-full w-full max-w-[140px] py-2 px-5 text-blue-400 text-sm lg:text-base lg:max-w-[160px] whitespace-nowrap hover:text-white"
             >
               Contactează-ne
             </Link>
