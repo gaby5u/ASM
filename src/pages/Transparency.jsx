@@ -28,13 +28,13 @@ const Transparency = () => {
           </h2>
           <Document
             title="Regulament de organizare și funcționare ASM"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
+            viewUrl="https://drive.google.com/file/d/1JATJaoKb4csjSKitnAF413L2VeVcOufk/view?usp=drive_link"
+            downloadUrl="https://drive.google.com/uc?export=download&id=1JATJaoKb4csjSKitnAF413L2VeVcOufk"
           />
           <Document
             title="Statutul organizației"
-            viewUrl="https://drive.google.com/file/d/1Jw3TI5a9z9Tj3cL8Svw48xjDundeIJai/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1Jw3TI5a9z9Tj3cL8Svw48xjDundeIJai"
+            viewUrl="https://drive.google.com/file/d/1JATJaoKb4csjSKitnAF413L2VeVcOufk/view?usp=drive_link"
+            downloadUrl="https://drive.google.com/uc?export=download&id=1JATJaoKb4csjSKitnAF413L2VeVcOufk"
           />
           <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
             Planuri strategice și de activitate
