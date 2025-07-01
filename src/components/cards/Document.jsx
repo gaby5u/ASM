@@ -5,7 +5,6 @@ const Document = ({ title, viewUrl, downloadUrl }) => {
       <div className="flex inline-block flex-wrap items-center justify-end gap-2 sm:flex-nowrap sm:flex md:gap-4">
         <a
           href={downloadUrl}
-          target="_blank"
           rel="noopener noreferrer"
           download
           className="flex w-full items-center justify-center gap-2 bg-blue-400 text-white rounded-xl text-sm py-2 px-4 my-2 sm:max-w-[115px] lg:max-w-[149px] lg:py-3 lg:px-6 lg:text-lg
@@ -31,7 +30,7 @@ const Document = ({ title, viewUrl, downloadUrl }) => {
           href={viewUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-blue-400 text-white rounded-xl text-sm py-2 px-4 my-2 lg:py-3 lg:px-6 lg:text-lg
+          className="flex items-center justify-center gap-2 bg-blue-400 text-white rounded-xl text-sm py-2 px-4 my-2 w-[140px] sm:w-[190px] lg:w-[240px] lg:py-3 lg:px-6 lg:text-lg
              transition duration-300 ease-in-out
              hover:bg-blue-500 hover:shadow-md hover:-translate-y-0.5
              active:bg-blue-500 active:shadow-sm active:translate-y-0"

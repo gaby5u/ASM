@@ -22,6 +22,19 @@ const ImageModal = ({ src, nrImg, images, activity }) => {
     }
   }, [swiperInstance]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        activity(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  })
+
   return (
     <div className="fixed flex justify-center items-center z-1000 top-0 bottom-0 left-0 right-0 bg-[#0D0F1F] w-full h-full">
       <button

@@ -11,7 +11,7 @@ const News = () => {
   const [newsList, setNewsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("Toate");
-  const categories = ["Toate", "Evenimente", "Cercetări", "Admitere", "Advocacy", "Întâlniri", "Colaborări"];
+  const categories = ["Toate", "Evenimente", "Cercetări", "Admitere", "Advocacy", "Întâlniri", "Colaborări", "Inițiative"];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,9 +68,9 @@ const News = () => {
         title="Noutăți"
         description="Cele mai recente inițiative, evenimente și acțiuni ale ASM, direct din teren"
       />
-      <div className="flex flex-wrap items-center justify-center bg-white shadow-sm rounded-xl mb-4 p-2 md:px-4 md:flex-nowrap md:justify-between lg:px-8 lg:py-4 lg:mb-16">
+      <div className="flex flex-wrap items-center justify-center bg-white shadow-sm rounded-xl mb-4 p-2 md:px-4 lg:flex-nowrap lg:justify-between lg:px-8 lg:py-4 lg:mb-16">
         {categories.map((category, index) => (
-          <p key={index} onClick={() => setActiveCategory(category)} className={`my-2 text-base rounded-sm cursor-pointer transition-all duration-200 py-2 px-4 lg:my-4 lg:text-xl xl:px-8 ${activeCategory === category ? "bg-blue-400 font-bold text-white hover:bg-blue-400" : "hover:bg-gray-100"}`}>
+          <p key={index} onClick={() => setActiveCategory(category)} className={`my-2 text-base rounded-sm cursor-pointer transition-all duration-200 py-2 px-4 lg:my-4 lg:text-xl ${activeCategory === category ? "bg-blue-400 font-bold text-white hover:bg-blue-400" : "hover:bg-gray-100"}`}>
             {category}
           </p>
         ))}

@@ -6,6 +6,7 @@ import emailjs from "emailjs-com";
 import InputText from "./inputs/InputText";
 import Textarea from "./inputs/Textarea";
 import CustomNotification from "./alerts/CustomNotification";
+import Loading from "./Loading";
 import ErrorText from "./alerts/ErrorText";
 import BlueButton from "./buttons/BlueButton";
 import { useState } from "react";
@@ -42,9 +43,11 @@ const ContactForm = () => {
     resolver: yupResolver(schema),
   });
   const [notification, setNotification] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
     try {
+      setIsLoading(true);
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -59,77 +62,82 @@ const ContactForm = () => {
       setNotification({ message: "Mesaj trimis cu succes!", type: "success" });
       reset();
     } catch (err) {
-      console.log("EmailJS Error:", err);
+      console.error(err);
       setNotification({
         message: "Eroare la trimiterea mesajului",
         type: "error",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="bg-white rounded-xl shadow-sm w-full p-4 sm:p-8 lg:p-12"
-    >
-      <h2 className="text-blue-500 font-rubik font-bold text-xl lg:text-[32px]">
-        Devino membru al echipei noastre!
-      </h2>
-      <div className="flex items-center justify-between gap-2 mt-4 md:gap-6">
-        <div className="w-full">
-          <InputText {...register("secondName")} placeholder="Nume*" />
-          {errors.secondName && (
-            <ErrorText errorMessage={errors.secondName?.message} />
-          )}
+    <>
+      {isLoading && <Loading />}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="bg-white rounded-xl shadow-sm w-full p-4 sm:p-8 lg:p-12"
+      >
+        <h2 className="text-blue-500 font-rubik font-bold text-xl lg:text-[32px]">
+          Devino membru al echipei noastre!
+        </h2>
+        <div className="flex items-start justify-between gap-2 mt-4 md:gap-6">
+          <div className="w-full">
+            <InputText {...register("secondName")} placeholder="Nume*" />
+            {errors.secondName && (
+              <ErrorText errorMessage={errors.secondName?.message} />
+            )}
+          </div>
+          <div className="w-full">
+            <InputText {...register("firstName")} placeholder="Prenume*" />
+            {errors.firstName && (
+              <ErrorText errorMessage={errors.firstName?.message} />
+            )}
+          </div>
         </div>
-        <div className="w-full">
-          <InputText {...register("firstName")} placeholder="Prenume*" />
-          {errors.firstName && (
-            <ErrorText errorMessage={errors.firstName?.message} />
-          )}
+
+        <InputText
+          {...register("email")}
+          placeholder="Email*"
+          className="w-full"
+        />
+        {errors.email && <ErrorText errorMessage={errors.email?.message} />}
+
+        <Textarea {...register("message")} placeholder="Mesaj*" />
+        {errors.message && <ErrorText errorMessage={errors.message.message} />}
+        <br />
+
+        <div className="text-center">
+          <BlueButton
+            text="Trimite"
+            type="submit"
+            disabled={isSubmitting}
+            className="px-12"
+          />
+          <p className="text-blue-400 text-base mt-6 lg:text-xl">
+            Vrei să devii voluntar? Aplică{" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeReTR2RWHb6OgGnNGOLpbzkg1S3BS0MtoKPX6Wal7a8Y742w/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-500 underline"
+            >
+              aici
+            </a>
+            !
+          </p>
         </div>
-      </div>
 
-      <InputText
-        {...register("email")}
-        placeholder="Email*"
-        className="w-full"
-      />
-      {errors.email && <ErrorText errorMessage={errors.email?.message} />}
-
-      <Textarea {...register("message")} placeholder="Mesaj*" />
-      {errors.message && <ErrorText errorMessage={errors.message.message} />}
-      <br />
-
-      <div className="text-center">
-        <BlueButton
-          text="Trimite"
-          type="submit"
-          disabled={isSubmitting}
-          className="px-12"
-        />
-        <p className="text-blue-400 text-base mt-6 lg:text-xl">
-          Vrei să devii voluntar? Aplică{" "}
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeReTR2RWHb6OgGnNGOLpbzkg1S3BS0MtoKPX6Wal7a8Y742w/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-red-500 underline"
-          >
-            aici
-          </a>
-          !
-        </p>
-      </div>
-
-      {notification && (
-        <CustomNotification
-          message={notification.message}
-          type={notification.type}
-          onClose={() => setNotification(null)}
-        />
-      )}
-    </form>
+        {notification && (
+          <CustomNotification
+            message={notification.message}
+            type={notification.type}
+            onClose={() => setNotification(null)}
+          />
+        )}
+      </form>
+    </>
   );
 };
 

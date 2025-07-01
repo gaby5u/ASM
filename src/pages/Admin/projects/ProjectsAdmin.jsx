@@ -26,7 +26,8 @@ const ProjectsAdmin = () => {
         setIsLoading(false);
       } catch (err) {
         console.error(err);
-        setIsLoading(false);
+      } finally {
+        setIsLoading(false);  
       }
     };
     getProjectsList();

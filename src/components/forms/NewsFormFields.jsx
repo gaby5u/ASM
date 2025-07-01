@@ -73,10 +73,10 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         error={errors.title?.message}
       />
       {errors.title && <ErrorText errorMessage={errors.title?.message} />}
-      {/* <div className="flex items-center gap-2 my-2">
+      <div className="flex items-center gap-2 my-2">
         <input type="checkbox" id="finalizat" {...register("isCompleted")} />
-        <label htmlFor="finalizat">Finalizat</label>
-      </div> */}
+        <label htmlFor="finalizat" className="text-sm lg:text-lg">Finalizat</label>
+      </div>
       <DateInput
         title="Data de început"
         {...register("startDate")}
@@ -107,6 +107,7 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
         <option value="Advocacy">Advocacy</option>
         <option value="Întâlniri">Întâlniri</option>
         <option value="Colaborări">Colaborări</option>
+        <option value="Inițiative">Inițiative</option>
       </select>
       {errors.category && <ErrorText errorMessage={errors.category?.message} />}
       <select

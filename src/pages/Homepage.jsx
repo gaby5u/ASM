@@ -29,6 +29,9 @@ const Homepage = () => {
 
   return (
     <>
+    {/* px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50 */}
+
+    {/* px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50 */}
       <section
         style={{ backgroundImage: `url(${BgImage})` }}
         className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50"
@@ -94,7 +97,7 @@ const Homepage = () => {
       </section>
       <section
         style={{ backgroundImage: `url(${BgImageElements})` }}
-        className="bg-white bg-no-repeat font-dm bg-cover w-full h-full my-16 md:my-24"
+        className="bg-white bg-no-repeat font-dm bg-cover w-full h-full py-16 md:py-24"
       >
         <div className="max-w-[1880px] mx-auto">
         <div className="py-2 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
@@ -104,6 +107,7 @@ const Homepage = () => {
               title="Suntem Alianța Studenților din Moldova – reprezentăm peste 100.000 de studenți din toată țara, apărăm drepturile lor și susținem implicarea activă în viața academică."
               highlited="Alianța Studenților din Moldova"
               className="xl:max-w-[800px]"
+              customClassName="my-0"
             />
             <div className="flex flex-col gap-8 border-l border-gray-100 ml-[10px] lg:pt-8 lg:gap-12 lg:ml-0">
               <CaractWhoAreWe
@@ -123,13 +127,13 @@ const Homepage = () => {
           <Title
             subtitle="Puterea prezentului"
             title="Organizații și instituții care ne susțin"
-            className="mb-8"
+            className="my-8"
           />
         </div>
         <Swiper
           className="w-full max-h-[300px]"
-          spaceBetween={30}
-          slidesPerView={7}
+          slidesPerView={1}
+          spaceBetween={2}
           loop={true}
           modules={[Autoplay]}
           autoplay={{ delay: 0, disableOnInteraction: false }}
@@ -137,31 +141,31 @@ const Homepage = () => {
           breakpoints={{
             320: {
               slidesPerView: 1,
-              spaceBetween: 10,
+              spaceBetween: 5,
             },
             400: {
               slidesPerView: 2,
-              spaceBetween: 15,
+              spaceBetween: 10,
             },
             640: {
               slidesPerView: 3,
-              spaceBetween: 20,
+              spaceBetween: 25,
             },
             768: {
               slidesPerView: 4,
-              spaceBetween: 25,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 5,
-              spaceBetween: 30,
+              spaceBetween: 25,
             },
             1280: {
               slidesPerView: 6,
-              spaceBetween: 30,
+              spaceBetween: 25,
             },
             1536: {
               slidesPerView: 7,
-              spaceBetween: 30,
+              spaceBetween: 25,
             },
           }}
         >

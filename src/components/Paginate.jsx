@@ -1,21 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 import ProjectCard from "./cards/ProjectCard";
 import { useNavigate } from "react-router";
 
-const itemsPerPage = 12;
+const itemsPerPage = 9;
 
 const Paginate = () => {
   const [cards, setCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const topRef = useRef(null);
+  
   useEffect(() => {
     const fetchProjects = async () => {
-      setLoading(true);
       try {
+        setLoading(true);
         const projectsCol = collection(db, "projects");
         const projectsSnapshot = await getDocs(projectsCol);
         const projectsData = projectsSnapshot.docs.map((doc) => ({
@@ -26,7 +27,9 @@ const Paginate = () => {
       } catch (err) {
         console.error(err);
       }
-      setLoading(false);
+      finally {
+        setLoading(false);
+      }
     };
 
     fetchProjects();
@@ -96,12 +99,18 @@ const Paginate = () => {
     <div className="mx-auto">
       <div className="relative py-2 w-full overflow-x-hidden overflow-y-visible">
         <div
+          ref={topRef}
           key={currentPage}
-          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 w-full px-1 auto-rows-min
+          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full px-1 auto-rows-min
               transition-all duration-500 ease-in-out ${pageTransition}`}
         >
           {selectedCards.map((card) => (
-            <ProjectCard key={card.id} title={card.title} icon={card.image} onClick={() => navigate(`/proiecte/${card.id}`)}/>
+            <ProjectCard
+              key={card.id}
+              title={card.title}
+              icon={card.image}
+              onClick={() => navigate(`/proiecte/${card.id}`)}
+            />
           ))}
         </div>
       </div>
@@ -115,7 +124,12 @@ const Paginate = () => {
           ) : (
             <button
               key={`page-${page}`}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => {
+                setCurrentPage(page);
+                  topRef.current?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+              }}
               className={`rounded-full font-bold py-2 px-4 sm:py-3 sm:px-5 ${
                 currentPage === page
                   ? "bg-blue-500 text-white"

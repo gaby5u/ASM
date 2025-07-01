@@ -27,6 +27,7 @@ const AcquisitionsAdmin = () => {
         setIsLoading(false);
       } catch (err) {
         console.error(err);
+      } finally {
         setIsLoading(false);
       }
     };

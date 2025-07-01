@@ -17,8 +17,7 @@ const AcquisitionsForm = () => {
     services: [{ value: "" }],
     selectionCriteria: [{ value: "" }],
     offerElements: [{ value: "" }],
-    
-emailSubject: "",
+    emailSubject: "",
   };
 
   const onSubmitNew = async (data) => {
