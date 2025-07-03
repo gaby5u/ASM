@@ -2,7 +2,6 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useNavigate } from "react-router";
 import AcquisitionsFormFields from "../../../components/forms/AcquisitionsFormFields";
-import { format } from "date-fns";
 
 const AcquisitionsForm = () => {
   const navigate = useNavigate();

@@ -1,89 +1,62 @@
 import HeadingText from "../components/HeadingText";
-import Document from "../components/cards/Document";
+import { db } from "../config/firebase";
+import { getDocs, collection } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
+import DocumentsCategory from "../components/DocumentsCategory";
 
 const Transparency = () => {
+  const [documentsList, setDocumentsList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDocuments = async () => {
+      try {
+        setIsLoading(true);
+        const documentsCol = collection(db, "documents");
+        const documentsSnapshot = await getDocs(documentsCol);
+        const documentsData = documentsSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setDocumentsList(documentsData);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchDocuments();
+  }, []);
+
+    const politicsList = documentsList?.filter(doc => doc.category === 'Politici');
+    const administrativeList = documentsList?.filter(doc => doc.category === 'Documente legale și administrative');
+    const plansList = documentsList?.filter(doc => doc.category === 'Planuri strategice și de activitate');
+    const reportsList = documentsList?.filter(doc => doc.category === 'Rapoarte');
+    const decisionsList = documentsList?.filter(doc => doc.category === 'Decizii și hotărâri');
+    const verbalProcessesList = documentsList?.filter(doc => doc.category === 'Procese verbale');
+    const questionnairesList = documentsList?.filter(doc => doc.category === 'Chestionare și analize sociologice');
+    const agreementList = documentsList?.filter(doc => doc.category === 'Contracte si acorduri');
+
   return (
     <>
       <section className="blured-section bg-blue-100 text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        {isLoading && <Loading />}
         <div className="max-w-[1880px] mx-auto">
           <HeadingText
             title="Transparență"
             description="Documente legale, administrative și politici interne care reflectă angajamentul nostru față de transparență și responsabilitate"
           />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Politici
-          </h2>
-          <Document
-            title="Politica de confidențialitate"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
-          <Document
-            title="Politica de voluntariat ASM"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1Jw3TI5a9z9Tj3cL8Svw48xjDundeIJai"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Documente legale și administrative
-          </h2>
-          <Document
-            title="Regulament de organizare și funcționare ASM"
-            viewUrl="https://drive.google.com/file/d/1JATJaoKb4csjSKitnAF413L2VeVcOufk/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1JATJaoKb4csjSKitnAF413L2VeVcOufk"
-          />
-          <Document
-            title="Statutul organizației"
-            viewUrl="https://drive.google.com/file/d/1JATJaoKb4csjSKitnAF413L2VeVcOufk/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1JATJaoKb4csjSKitnAF413L2VeVcOufk"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Planuri strategice și de activitate
-          </h2>
-          <Document
-            title="Plan strategic ASM 2024‑2027"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Rapoarte
-          </h2>
-          <Document
-            title="Raport anual de activitate ASM 2024"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Decizii și hotărâri
-          </h2>
-          <Document
-            title="Hotărâre CA ASM – lansare Act4Vote"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Procese verbale
-          </h2>
-          <Document
-            title="Proces‑verbal ședință echipă ASM 12 mars 2025"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Chestionare și analize sociologice
-          </h2>
-          <Document
-            title="Analiză nevoi studenți 2024i"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
-          <h2 className="font-rubik font-bold text-xl lg:text-[32px]">
-            Contracte și acorduri
-          </h2>
-          <Document
-            title="Contract de parteneriat ASM‑UNICEF"
-            viewUrl="https://drive.google.com/file/d/1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r/view?usp=drive_link"
-            downloadUrl="https://drive.google.com/uc?export=download&id=1YjK6otcwZtILJAEtdIpdsiCUtFvsyf1r"
-          />
+          <DocumentsCategory title="Politici" list={politicsList}/>
+          <DocumentsCategory title="Documente legale și administrative" list={administrativeList}/>
+          <DocumentsCategory title="Planuri strategice și de activitate" list={plansList}/>
+          <DocumentsCategory title="Rapoarte" list={reportsList}/>
+          <DocumentsCategory title="Decizii și hotărâri" list={decisionsList}/>
+          <DocumentsCategory title="Procese verbale" list={verbalProcessesList}/>
+          <DocumentsCategory title="Chestionare și analize sociologice" list={questionnairesList}/>
+          <DocumentsCategory title="Contracte si acorduri" list={agreementList}/>
+
         </div>
       </section>
     </>

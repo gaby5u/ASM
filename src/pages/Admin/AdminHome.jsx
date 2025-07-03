@@ -13,6 +13,7 @@ const AdminHome = () => {
         <BlueButton text="Proiecte" to="/admin/proiecte" className="px-12" />
         <BlueButton text="Anunțuri" to="/admin/achizitii" className="px-12" />
         <BlueButton text="Noutăți" to="/admin/noutati" className="px-12" />
+        <BlueButton text="Documente" to="/admin/documente" className="px-12" />
       </div>
       </div>
     </section>

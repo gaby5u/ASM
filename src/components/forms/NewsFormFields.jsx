@@ -14,40 +14,48 @@ import { db } from "../../config/firebase.jsx";
 import ErrorModal from "../alerts/ErrorModal.jsx";
 
 const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
+  
   const {
     control,
     register,
     handleSubmit,
     setValue,
+    reset,
     watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(newsSchema),
     defaultValues,
   });
-
+  
   const images = watch("images") || [];
   const [projects, setProjects] = useState([]);
-
+  
   const {
     fields: objectionFields,
     append: appendObjection,
     remove: removeObjection,
   } = useFieldArray({ control, name: "objection" });
-
+  
   const {
     fields: activityFields,
     append: appendActivity,
     remove: removeActivity,
   } = useFieldArray({ control, name: "mainActivities" });
-
+  
+useEffect(() => {
+  if (defaultValues && projects.length > 0) {
+    reset(defaultValues);
+  }
+}, [defaultValues, projects, reset]);
+  
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const snapshot = await getDocs(collection(db, "projects"));
         const projectList = snapshot.docs.map((doc) => ({
           id: doc.id,
-          name: doc.data().title,
+          title: doc.data().title,
         }));
         setProjects(projectList);
       } catch (error) {
@@ -113,14 +121,13 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
       <select
         {...register("associatedProject")}
         className="bg-blue-100 text-blue-400 placeholder-blue-400 border-1 w-full border-blue-400 rounded-xl text-sm py-2 px-3 my-1 transition-all duration-200 focus:ring-1 focus:ring-blue-400 focus:outline-none sm:my-3 sm:py-4 sm:px-6 lg:text-lg"
-        defaultValue=""
       >
         <option value="" disabled>
           Selectează proiectul asociat
         </option>
         {projects.map((project) => (
           <option key={project.id} value={project.title}>
-            {project.name}
+            {project.title}
           </option>
         ))}
       </select>

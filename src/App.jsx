@@ -26,6 +26,9 @@ import EditNew from "./pages/Admin/news/EditNew.jsx";
 import AcquisitionsAdmin from "./pages/Admin/acquisitions/AcquisitionsAdmin.jsx";
 import AddAcquisition from "./pages/Admin/acquisitions/AddAcquisition.jsx";
 import EditAcquisition from "./pages/Admin/acquisitions/EditAcquisition.jsx";
+import DocumentsAdmin from "./pages/Admin/documents/DocumentsAdmin.jsx";
+import AddDocument from "./pages/Admin/documents/AddDocument.jsx";
+import EditDocument from "./pages/Admin/documents/EditDocument.jsx";
 
 function Layout() {
   const { pathname } = useLocation();
@@ -129,6 +132,30 @@ function App() {
               element={
                 <AdminRoute>
                   <EditAcquisition />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/documente"
+              element={
+                <AdminRoute>
+                  <DocumentsAdmin />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/documente/adaugare"
+              element={
+                <AdminRoute>
+                  <AddDocument />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/documente/editare/:id"
+              element={
+                <AdminRoute>
+                  <EditDocument />
                 </AdminRoute>
               }
             />
