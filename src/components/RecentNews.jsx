@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import CardNews from "../components/cards/CardNews";
 import Loading from "../components/Loading";
+import Title from "../components/Title";
+import BlueButton from "../components/buttons/BlueButton";
 
 const RecentNews = () => {
   const [newsList, setNewsList] = useState([]);
@@ -26,7 +28,7 @@ const RecentNews = () => {
           ...doc.data(),
           id: doc.id,
         }));
-        setNewsList(filtereData);
+        setNewsList(filtereData.filter((newsItem) => newsItem.isCompleted));
       } catch (err) {
         console.error(err);
       } finally {
@@ -37,18 +39,31 @@ const RecentNews = () => {
     getRecentNews();
   }, []);
 
-  useEffect(() => {}, [newsList]);
-
   return (
     <>
-      {isLoading && <Loading/>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
-        {
-          newsList.map((newsItem) => (
-            <CardNews key={newsItem.id} newEl={newsItem} onClick={() => navigate(`/noutati/${newsItem.id}`)}/>
-          ))
-        }
-      </div>
+      {isLoading && <Loading />}
+
+      {newsList.length > 0 && (
+        <>
+          <Title subtitle="noutăți" title="Cele mai proaspete evenimente" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center">
+            {newsList.map((newsItem) => (
+              <CardNews
+                key={newsItem.id}
+                newEl={newsItem}
+                onClick={() => navigate(`/noutati/${newsItem.id}`)}
+              />
+            ))}
+          </div>
+          <div className="text-center">
+            <BlueButton
+              to="/noutati"
+              text="Vezi toate noutățile"
+              className="mt-8 md:mt-16"
+            />
+          </div>
+        </>
+      )}
     </>
   );
 };

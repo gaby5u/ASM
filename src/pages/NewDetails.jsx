@@ -103,7 +103,16 @@ const NewDetails = () => {
         </div>
         {isActual && (
           <div className="text-center mt-4 lg:mt-8">
-            <BlueButton text="Participă acum!" />
+            <a
+              href={
+                newItem.participateLink ||
+                "https://www.instagram.com/as.moldova/"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BlueButton text="Participă acum!" />
+            </a>
           </div>
         )}
         <Title

@@ -14,6 +14,7 @@ import Title from "../components/Title";
 import UnorderedList from "../components/UnorderedList";
 import NewFromProject from "../components/cards/NewFromProject";
 import Loading from "../components/Loading";
+import DevelopingNews from "../components/cards/DevelopingNews";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -69,7 +70,7 @@ const ProjectDetails = () => {
     <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
       <div className="max-w-[1880px] mx-auto">
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
-        <Title title={projects.title} subtitle="inițiativele noastre" />
+        <Title title={projects.title} subtitle="inițiativele noastre" className="w-full"/>
         <img
           src="/images/project.svg"
           alt="megaphone"
@@ -114,11 +115,19 @@ const ProjectDetails = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-4 lg:mt-10">
             {newsList?.map((newItem) => (
-              <NewFromProject
-                key={newItem.id}
-                newItem={newItem}
-                onClick={() => navigate(`/noutati/${newItem.id}`)}
-              />
+              newItem.isCompleted ? (
+                <NewFromProject
+                  key={newItem.id}
+                  newItem={newItem}
+                  onClick={() => navigate(`/noutati/${newItem.id}`)}
+                />
+              ) : (
+                <DevelopingNews
+                  key={newItem.id}
+                  newEl={newItem}
+                  isFromProject={true}
+                />
+              )
             ))}
           </div>
         </>

@@ -14,7 +14,6 @@ import { db } from "../../config/firebase.jsx";
 import ErrorModal from "../alerts/ErrorModal.jsx";
 
 const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
-  
   const {
     control,
     register,
@@ -27,28 +26,28 @@ const NewsFormFields = ({ onSubmit, defaultValues, isEdit = false }) => {
     resolver: yupResolver(newsSchema),
     defaultValues,
   });
-  
+
   const images = watch("images") || [];
   const [projects, setProjects] = useState([]);
-  
+
   const {
     fields: objectionFields,
     append: appendObjection,
     remove: removeObjection,
   } = useFieldArray({ control, name: "objection" });
-  
+
   const {
     fields: activityFields,
     append: appendActivity,
     remove: removeActivity,
   } = useFieldArray({ control, name: "mainActivities" });
-  
-useEffect(() => {
-  if (defaultValues && projects.length > 0) {
-    reset(defaultValues);
-  }
-}, [defaultValues, projects, reset]);
-  
+
+  useEffect(() => {
+    if (defaultValues && projects.length > 0) {
+      reset(defaultValues);
+    }
+  }, [defaultValues, projects, reset]);
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -60,7 +59,7 @@ useEffect(() => {
         setProjects(projectList);
       } catch (error) {
         console.error("Eroare la încărcarea proiectelor:", error);
-        return <ErrorModal />
+        return <ErrorModal />;
       }
     };
 
@@ -83,7 +82,9 @@ useEffect(() => {
       {errors.title && <ErrorText errorMessage={errors.title?.message} />}
       <div className="flex items-center gap-2 my-2">
         <input type="checkbox" id="finalizat" {...register("isCompleted")} />
-        <label htmlFor="finalizat" className="text-sm lg:text-lg">Finalizat</label>
+        <label htmlFor="finalizat" className="text-sm lg:text-lg">
+          Finalizat
+        </label>
       </div>
       <DateInput
         title="Data de început"
@@ -165,6 +166,14 @@ useEffect(() => {
       />
       {errors.mainActivities && (
         <ErrorText errorMessage={errors.mainActivities?.message} />
+      )}
+      <InputText
+        placeholder="Link de participare (Google Form)"
+        {...register("participateLink")}
+        error={errors.participateLink?.message}
+      />
+      {errors.participateLink && (
+        <ErrorText errorMessage={errors.participateLink?.message} />
       )}
       <Textarea
         placeholder="Detalii"

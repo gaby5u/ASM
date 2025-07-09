@@ -35,7 +35,7 @@ const AcquisitionDetails = () => {
       <div className="flex flex-wrap-reverse items-center justify-end gap-[10%] sm:flex-nowrap sm:justify-between">
         <Title
           title={acquisition?.title}
-          subtitle="Oportunitate de parteneriat"
+          subtitle="Oportunitate de parteneriat" className="w-full"
         />
         <img
           src="/images/AcquisitionMegaphone.svg"

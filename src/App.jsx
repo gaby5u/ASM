@@ -14,6 +14,7 @@ import AcquisitionDetails from "./pages/AcquisitionDetails.jsx";
 import ProjectDetails from "./pages/ProjectDetails.jsx";
 import Transparency from "./pages/Transparency.jsx";
 import Contact from "./pages/Contact.jsx";
+import Developing from "./pages/Developing.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import AdminHome from "./pages/Admin/AdminHome.jsx";
@@ -55,6 +56,7 @@ function App() {
             <Route path="/proiecte/:id" element={<ProjectDetails />} />
             <Route path="/transparenta" element={<Transparency />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/dezvoltare" element={<Developing />} />
             <Route
               path="/admin"
               element={

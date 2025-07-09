@@ -19,8 +19,11 @@ export const AuthProvider = ({ children }) => {
       const idTokenResult = await user.getIdTokenResult(true);
 
       setUser(user);
-      setIsAdmin(!!idTokenResult.claims.admin);
-      navigate("/admin");
+      const isAdminUser = !!idTokenResult.claims.admin;
+      setIsAdmin(isAdminUser);
+      if (isAdminUser) {
+        navigate("/admin");
+      }
     } catch (err) {
       console.error(err);
     }
@@ -53,7 +56,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, loading, signInWithGoogle, logOut }}>
+    <AuthContext.Provider
+      value={{ user, isAdmin, loading, signInWithGoogle, logOut }}
+    >
       {children}
     </AuthContext.Provider>
   );

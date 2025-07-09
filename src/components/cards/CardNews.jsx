@@ -5,7 +5,7 @@ const CardNews = ({ newEl, onClick }) => {
   const [bgColor, textColor] = getColorsCategory(newEl?.category);
 
   return (
-    <div className="  rounded-xl bg-white shadow-sm w-full max-w-[470px] h-full flex flex-col">
+    <div className="rounded-xl bg-white shadow-sm w-full max-w-[470px] h-full flex flex-col">
       <div className="relative">
         <img
           className="rounded-t-xl max-h-[250px] min-h-[250px] w-full h-full object-cover md:min-h-[300px]"

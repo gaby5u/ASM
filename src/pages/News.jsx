@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import CardNews from "../components/cards/CardNews";
 import { useNavigate } from "react-router";
 import Loading from "../components/Loading";
+import DevelopingNews from "../components/cards/DevelopingNews";
 
 const News = () => {
   const [newsList, setNewsList] = useState([]);
@@ -75,11 +76,20 @@ const News = () => {
           </p>
         ))}
       </div>
+
+      {
+        newsList.length > 0 ? ( 
       <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
-        {newsList.map((newEl) => (
-          <CardNews key={newEl.id} newEl={newEl} onClick={() => navigate(`/noutati/${newEl.id}`)}/>
-        ))}
+        {
+          newsList.map((newEl) => (
+            newEl.isCompleted ? (
+              <CardNews key={newEl.id} newEl={newEl} onClick={() => navigate(`/noutati/${newEl.id}`)}/>
+            ) : (<DevelopingNews key={newEl.id} newEl={newEl} />)
+          ))
+        }
       </div>
+        ) : <p className="text-center text-base py-16 lg:text-xl lg:py-8">Nu există nouăți încă</p>
+      }
       </div>
     </section>
   );

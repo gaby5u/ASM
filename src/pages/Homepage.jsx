@@ -29,9 +29,6 @@ const Homepage = () => {
 
   return (
     <>
-    {/* px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50 */}
-
-    {/* px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50 */}
       <section
         style={{ backgroundImage: `url(${BgImage})` }}
         className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50"
@@ -232,15 +229,7 @@ const Homepage = () => {
 
       <section className="blured-section font-dm bg-blue-100  py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
         <div className="max-w-[1880px] mx-auto">
-        <Title subtitle="noutăți" title="Cele mai proaspete evenimente" />
         <RecentNews />
-        <div className="text-center">
-          <BlueButton
-            to="/noutati"
-            text="Vezi toate noutățile"
-            className="mt-8 md:mt-16"
-          />
-        </div>
         </div>
       </section>
 
