@@ -4,6 +4,10 @@ const BlueButton = ({ to, text, className, ...props }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
+    if (props.onClick) {
+      props.onClick(e);
+      return;
+    }
     if (!to) return;
 
     let finalTo = to;

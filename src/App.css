@@ -2,6 +2,17 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
+:root {
+  color-scheme: light;
+  background: white;
+  color: black;
+}
+
+html, body {
+  background-color: white !important;
+  color: black !important;
+}
+
 button {
   cursor: pointer;
 }
@@ -77,6 +88,13 @@ button {
 }
 .area-e {
   grid-area: e;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: white !important;
+    color: black !important;
+  }
 }
 
 @theme {

@@ -13,7 +13,7 @@ const Developing = () => {
           Acest eveniment este în curs de dezvoltare
         </h1>
         <p className="my-10 text-base lg:text-2xl">Momentan acest eveniment este în proces de pregătire. Lucrăm la detalii și vom reveni în curând cu mai multe informații!</p>
-        <BlueButton text="Înapoi" className="px-10" to={() => navigate(-1)}/>
+        <BlueButton text="Înapoi" className="px-10" onClick={() => navigate(-1)}/>
         </div>
         <img src="/images/calendar.svg" alt="calendar" className="max-w-[260px] lg:max-w-[360px] xl:max-w-[575px]"/>
       </div>
