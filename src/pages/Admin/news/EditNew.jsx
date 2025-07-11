@@ -1,11 +1,12 @@
 import { useParams, useNavigate } from "react-router";
-import { doc, getDoc, updateDoc} from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import NewsFormFields from "../../../components/forms/NewsFormFields";
 import { db } from "../../../config/firebase";
 import { format } from "date-fns";
 import Loading from "../../../components/Loading";
 import ErrorModal from "../../../components/alerts/ErrorModal";
+import { Helmet } from "react-helmet";
 
 const EditNew = () => {
   const { id } = useParams();
@@ -61,17 +62,21 @@ const EditNew = () => {
   };
 
   if (loading) return <Loading />;
-  if (!defaultValues)
-    return <ErrorModal/>;
+  if (!defaultValues) return <ErrorModal />;
 
   return (
-    <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      <NewsFormFields
-        onSubmit={onSubmitEdit}
-        defaultValues={defaultValues}
-        isEdit
-      />
-    </section>
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        <NewsFormFields
+          onSubmit={onSubmitEdit}
+          defaultValues={defaultValues}
+          isEdit
+        />
+      </section>
+    </>
   );
 };
 

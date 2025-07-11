@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://asmoldova-64219.web.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://asmoldova-64219.web.app/despre</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://asmoldova-64219.web.app/noutati</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://asmoldova-64219.web.app/achizitii</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://asmoldova-64219.web.app/transparenta</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://asmoldova-64219.web.app/contacte</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

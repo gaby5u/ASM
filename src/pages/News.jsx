@@ -7,12 +7,22 @@ import CardNews from "../components/cards/CardNews";
 import { useNavigate } from "react-router";
 import Loading from "../components/Loading";
 import DevelopingNews from "../components/cards/DevelopingNews";
+import { Helmet } from "react-helmet";
 
 const News = () => {
   const [newsList, setNewsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("Toate");
-  const categories = ["Toate", "Evenimente", "Cercetări", "Admitere", "Advocacy", "Întâlniri", "Colaborări", "Inițiative"];
+  const categories = [
+    "Toate",
+    "Evenimente",
+    "Cercetări",
+    "Admitere",
+    "Advocacy",
+    "Întâlniri",
+    "Colaborări",
+    "Inițiative",
+  ];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,36 +72,59 @@ const News = () => {
     getNewsist();
   }, [activeCategory]);
   return (
-    <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <Loading/>}
-      <div className="max-w-[1880px] mx-auto">
-      <HeadingText
-        title="Noutăți"
-        description="Cele mai recente inițiative, evenimente și acțiuni ale ASM, direct din teren"
-      />
-      <div className="flex flex-wrap items-center justify-center bg-white shadow-sm rounded-xl mb-4 p-2 md:px-4 lg:flex-nowrap lg:justify-between lg:px-8 lg:py-4 lg:mb-16">
-        {categories.map((category, index) => (
-          <p key={index} onClick={() => setActiveCategory(category)} className={`my-2 text-base rounded-sm cursor-pointer transition-all duration-200 py-2 px-4 lg:my-4 lg:text-xl ${activeCategory === category ? "bg-blue-400 font-bold text-white hover:bg-blue-400" : "hover:bg-gray-100"}`}>
-            {category}
-          </p>
-        ))}
-      </div>
+    <>
+      <Helmet>
+        <title>Noutăți ASMoldova - Evenimente</title>
+        <meta
+          name="description"
+          content="Ultimele știri și evenimente organizate de ASMoldova pentru studenți."
+        />
+      </Helmet>
+      <section className="bg-blue-100 font-dm text-blue-500 px-2 pt-16 pb-0 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        {isLoading && <Loading />}
+        <div className="max-w-[1880px] mx-auto">
+          <HeadingText
+            title="Noutăți"
+            description="Cele mai recente inițiative, evenimente și acțiuni ale ASM, direct din teren"
+          />
+          <div className="flex flex-wrap items-center justify-center bg-white shadow-sm rounded-xl mb-4 p-2 md:px-4 lg:flex-nowrap lg:justify-between lg:px-8 lg:py-4 lg:mb-16">
+            {categories.map((category, index) => (
+              <p
+                key={index}
+                onClick={() => setActiveCategory(category)}
+                className={`my-2 text-base rounded-sm cursor-pointer transition-all duration-200 py-2 px-4 lg:my-4 lg:text-xl ${
+                  activeCategory === category
+                    ? "bg-blue-400 font-bold text-white hover:bg-blue-400"
+                    : "hover:bg-gray-100"
+                }`}
+              >
+                {category}
+              </p>
+            ))}
+          </div>
 
-      {
-        newsList.length > 0 ? ( 
-      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
-        {
-          newsList.map((newEl) => (
-            newEl.isCompleted ? (
-              <CardNews key={newEl.id} newEl={newEl} onClick={() => navigate(`/noutati/${newEl.id}`)}/>
-            ) : (<DevelopingNews key={newEl.id} newEl={newEl} />)
-          ))
-        }
-      </div>
-        ) : <p className="text-center text-base py-16 lg:text-xl lg:py-8">Nu există nouăți încă</p>
-      }
-      </div>
-    </section>
+          {newsList.length > 0 ? (
+            <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+              {newsList.map((newEl) =>
+                newEl.isCompleted ? (
+                  <CardNews
+                    key={newEl.id}
+                    newEl={newEl}
+                    onClick={() => navigate(`/noutati/${newEl.id}`)}
+                  />
+                ) : (
+                  <DevelopingNews key={newEl.id} newEl={newEl} />
+                )
+              )}
+            </div>
+          ) : (
+            <p className="text-center text-base py-16 lg:text-xl lg:py-8">
+              Nu există nouăți încă
+            </p>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

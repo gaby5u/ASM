@@ -6,6 +6,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Loading from "../../../components/Loading";
+import { Helmet } from "react-helmet";
 
 const ProjectsAdmin = () => {
   const [projectsList, setProjectsList] = useState([]);
@@ -27,41 +28,46 @@ const ProjectsAdmin = () => {
       } catch (err) {
         console.error(err);
       } finally {
-        setIsLoading(false);  
+        setIsLoading(false);
       }
     };
     getProjectsList();
   }, []);
 
   return (
-    <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      <div className="max-w-[1880px] mx-auto">
-      <HeadingText title="Proiecte" className="text-start" />
-      <AddButton
-        title="un proiect nou"
-        onClick={() => navigate("/admin/proiecte/adaugare")}
-      />
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        <div className="max-w-[1880px] mx-auto">
+          <HeadingText title="Proiecte" className="text-start" />
+          <AddButton
+            title="un proiect nou"
+            onClick={() => navigate("/admin/proiecte/adaugare")}
+          />
 
-      <div>
-        {projectsList.map((projectsItem) => (
-          <div key={projectsItem.id}>
-            <AdminElement
-              title={projectsItem.title}
-              id={projectsItem.id}
-              collectionName="projects"
-              to="proiecte"
-              onDelete={() => {
-                setProjectsList((prev) =>
-                  prev.filter((item) => item.id !== projectsItem.id)
-                );
-              }}
-            />
+          <div>
+            {projectsList.map((projectsItem) => (
+              <div key={projectsItem.id}>
+                <AdminElement
+                  title={projectsItem.title}
+                  id={projectsItem.id}
+                  collectionName="projects"
+                  to="proiecte"
+                  onDelete={() => {
+                    setProjectsList((prev) =>
+                      prev.filter((item) => item.id !== projectsItem.id)
+                    );
+                  }}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      </div>
-      {isLoading && <Loading/>}
-    </section>
+        </div>
+        {isLoading && <Loading />}
+      </section>
+    </>
   );
 };
 

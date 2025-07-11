@@ -1,4 +1,3 @@
-
 import HeadingText from "../../../components/HeadingText";
 import AddButton from "../../../components/buttons/AddButton";
 import AdminElement from "../../../components/AdminElement";
@@ -7,6 +6,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Loading from "../../../components/Loading";
+import { Helmet } from "react-helmet";
 
 const AcquisitionsAdmin = () => {
   const [acquisitionsList, setAcquisitionsList] = useState([]);
@@ -34,35 +34,40 @@ const AcquisitionsAdmin = () => {
     getAcquisitionsList();
   }, []);
   return (
-    <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      {isLoading && <Loading/>}
-      <div className="max-w-[1880px] mx-auto">
-      <HeadingText title="Anunțuri" className="text-start" />
-      <AddButton
-        title="un anunț nou"
-        onClick={() => navigate("/admin/achizitii/adaugare")}
-      />
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        {isLoading && <Loading />}
+        <div className="max-w-[1880px] mx-auto">
+          <HeadingText title="Anunțuri" className="text-start" />
+          <AddButton
+            title="un anunț nou"
+            onClick={() => navigate("/admin/achizitii/adaugare")}
+          />
 
-      <div>
-        {acquisitionsList.map((acquisitionItem) => (
-          <div key={acquisitionItem.id}>
-            <AdminElement
-              title={acquisitionItem.title}
-              id={acquisitionItem.id}
-              collectionName="acquisitions"
-              to="achizitii"
-              onDelete={() => {
-                setAcquisitionsList((prev) =>
-                  prev.filter((item) => item.id !== acquisitionItem.id)
-                );
-              }}
-            />
+          <div>
+            {acquisitionsList.map((acquisitionItem) => (
+              <div key={acquisitionItem.id}>
+                <AdminElement
+                  title={acquisitionItem.title}
+                  id={acquisitionItem.id}
+                  collectionName="acquisitions"
+                  to="achizitii"
+                  onDelete={() => {
+                    setAcquisitionsList((prev) =>
+                      prev.filter((item) => item.id !== acquisitionItem.id)
+                    );
+                  }}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      </div>
-    </section>
-  )
-}
+        </div>
+      </section>
+    </>
+  );
+};
 
-export default AcquisitionsAdmin
+export default AcquisitionsAdmin;

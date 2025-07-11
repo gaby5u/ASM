@@ -6,6 +6,7 @@ import { db } from "../../../config/firebase";
 import { format } from "date-fns";
 import Loading from "../../../components/Loading";
 import ErrorModal from "../../../components/alerts/ErrorModal";
+import { Helmet } from "react-helmet";
 
 const EditAcquisition = () => {
   const { id } = useParams();
@@ -62,18 +63,22 @@ const EditAcquisition = () => {
     }
   };
 
-  if (loading) return <Loading/>;
-  if (!defaultValues)
-    return <ErrorModal/>
+  if (loading) return <Loading />;
+  if (!defaultValues) return <ErrorModal />;
 
   return (
-    <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
-      <AcquisitionsFormFields
-        onSubmit={onSubmitEdit}
-        defaultValues={defaultValues}
-        isEdit
-      />
-    </section>
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <section className="bg-blue-100 font-dm px-2 pt-16 pb-4 sm:px-4 lg:px-10 xl:px-20 xl:py-25 2xl:px-50">
+        <AcquisitionsFormFields
+          onSubmit={onSubmitEdit}
+          defaultValues={defaultValues}
+          isEdit
+        />
+      </section>
+    </>
   );
 };
 

@@ -7,12 +7,12 @@ import Title from "../components/Title";
 import PartenerSlide from "../components/PartenerSlide";
 import CaractWhoAreWe from "../components/CaractWhoAreWe";
 import RecentNews from "../components/RecentNews";
-import BlueButton from "../components/buttons/BlueButton";
 import Gallery from "../components/Gallery";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useLocation } from "react-router";
+import { Helmet } from "react-helmet";
 import "swiper/css";
 
 const Homepage = () => {
@@ -29,6 +29,14 @@ const Homepage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>ASMoldova - Inițiativă pentru educația studenților</title>
+        <meta
+          name="description"
+          content="ASMoldova promovează educația digitală în Republica Moldova prin proiecte și evenimente dedicate studenților."
+        />
+      </Helmet>
+
       <section
         style={{ backgroundImage: `url(${BgImage})` }}
         className="blured-section bg-blue-100 bg-no-repeat bg-cover bg-center w-full h-full font-dm px-2 sm:px-4 py-16 lg:px-10 xl:px-20 xl:py-25 2xl:px-50"
@@ -97,139 +105,138 @@ const Homepage = () => {
         className="bg-white bg-no-repeat font-dm bg-cover w-full h-full py-16 md:py-24"
       >
         <div className="max-w-[1880px] mx-auto">
-        <div className="py-2 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:gap-8 lg:gap-16 xl:flex-row">
-            <Title
-              subtitle="Cine suntem"
-              title="Suntem Alianța Studenților din Moldova – reprezentăm peste 100.000 de studenți din toată țara, apărăm drepturile lor și susținem implicarea activă în viața academică."
-              highlited="Alianța Studenților din Moldova"
-              className="xl:max-w-[800px]"
-              customClassName="my-0"
-            />
-            <div className="flex flex-col gap-8 border-l border-gray-100 ml-[10px] lg:pt-8 lg:gap-12 lg:ml-0">
-              <CaractWhoAreWe
-                title="Viziunea noastră"
-                description="Educație de calitate, accesibilă tuturor studenților, șanse egale și implicare deplină în guvernanța universitară."
+          <div className="py-2 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-6">
+            <div className="flex flex-col items-center justify-between gap-4 md:gap-8 lg:gap-16 xl:flex-row">
+              <Title
+                subtitle="Cine suntem"
+                title="Suntem Alianța Studenților din Moldova – reprezentăm peste 100.000 de studenți din toată țara, apărăm drepturile lor și susținem implicarea activă în viața academică."
+                highlited="Alianța Studenților din Moldova"
+                className="xl:max-w-[800px]"
+                customClassName="my-0"
               />
-              <CaractWhoAreWe
-                title="Misiunea noastră"
-                description="Reprezentăm și susținem toți studenții și organizațiile lor, încurajând colaborarea și dezvoltarea potențialului."
-              />
-              <CaractWhoAreWe
-                title="Сe facem"
-                description="Organizăm campanii, contribuim la politicile educaționale, colaborăm cu instituții cheie și oferim sprijin studenților aflați în situații de nedreptate."
-              />
+              <div className="flex flex-col gap-8 border-l border-gray-100 ml-[10px] lg:pt-8 lg:gap-12 lg:ml-0">
+                <CaractWhoAreWe
+                  title="Viziunea noastră"
+                  description="Educație de calitate, accesibilă tuturor studenților, șanse egale și implicare deplină în guvernanța universitară."
+                />
+                <CaractWhoAreWe
+                  title="Misiunea noastră"
+                  description="Reprezentăm și susținem toți studenții și organizațiile lor, încurajând colaborarea și dezvoltarea potențialului."
+                />
+                <CaractWhoAreWe
+                  title="Сe facem"
+                  description="Organizăm campanii, contribuim la politicile educaționale, colaborăm cu instituții cheie și oferim sprijin studenților aflați în situații de nedreptate."
+                />
+              </div>
             </div>
+            <Title
+              subtitle="Puterea prezentului"
+              title="Organizații și instituții care ne susțin"
+              className="my-8"
+            />
           </div>
-          <Title
-            subtitle="Puterea prezentului"
-            title="Organizații și instituții care ne susțin"
-            className="my-8"
-          />
+          <Swiper
+            className="w-full max-h-[300px]"
+            slidesPerView={1}
+            spaceBetween={2}
+            loop={true}
+            modules={[Autoplay]}
+            autoplay={{ delay: 0, disableOnInteraction: false }}
+            speed={3000}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 5,
+              },
+              400: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 25,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 25,
+              },
+              1280: {
+                slidesPerView: 6,
+                spaceBetween: 25,
+              },
+              1536: {
+                slidesPerView: 7,
+                spaceBetween: 25,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <PartenerSlide
+                partener="ansor"
+                image="/images/parteners/ansor-logo.png"
+                alt="ansor"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="alda"
+                image="/images/parteners/alda-logo.png"
+                alt="alda"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="mec"
+                image="/images/parteners/mec-logo.png"
+                alt="mec"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="ant"
+                image="/images/parteners/ant-logo.png"
+                alt="ant"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="cntm"
+                image="/images/parteners/cntm-logo.png"
+                alt="cntm"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="erim"
+                image="/images/parteners/erim-logo.png"
+                alt="erim"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="diez"
+                image="/images/parteners/diez-logo.png"
+                alt="diez"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PartenerSlide
+                partener="esu"
+                image="/images/parteners/esu-logo.png"
+                alt="esu"
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
-        <Swiper
-          className="w-full max-h-[300px]"
-          slidesPerView={1}
-          spaceBetween={2}
-          loop={true}
-          modules={[Autoplay]}
-          autoplay={{ delay: 0, disableOnInteraction: false }}
-          speed={3000}
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 5,
-            },
-            400: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            640: {
-              slidesPerView: 3,
-              spaceBetween: 25,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 25,
-            },
-            1280: {
-              slidesPerView: 6,
-              spaceBetween: 25,
-            },
-            1536: {
-              slidesPerView: 7,
-              spaceBetween: 25,
-            },
-          }}
-        >
-          <SwiperSlide>
-            <PartenerSlide
-              partener="ansor"
-              image="/images/parteners/ansor-logo.png"
-              alt="ansor"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="alda"
-              image="/images/parteners/alda-logo.png"
-              alt="alda"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="mec"
-              image="/images/parteners/mec-logo.png"
-              alt="mec"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="ant"
-              image="/images/parteners/ant-logo.png"
-              alt="ant"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="cntm"
-              image="/images/parteners/cntm-logo.png"
-              alt="cntm"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="erim"
-              image="/images/parteners/erim-logo.png"
-              alt="erim"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="diez"
-              image="/images/parteners/diez-logo.png"
-              alt="diez"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PartenerSlide
-              partener="esu"
-              image="/images/parteners/esu-logo.png"
-              alt="esu"
-            />
-          </SwiperSlide>
-        </Swiper>
-        </div>
-
       </section>
 
       <section className="blured-section font-dm bg-blue-100  py-4 px-2 sm:px-4 lg:px-10 xl:px-20 2xl:px-50 xl:py-8">
         <div className="max-w-[1880px] mx-auto">
-        <RecentNews />
+          <RecentNews />
         </div>
       </section>
 

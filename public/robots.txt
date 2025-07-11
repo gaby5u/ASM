@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asmoldova-64219.web.app/sitemap.xml
+Disallow: /admin
